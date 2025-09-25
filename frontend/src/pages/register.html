@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Camps</title>
+    <link rel="stylesheet" href="/frontend/src/style/register.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+<body>
+    <div class="container">
+                <div class="img-section">
+                    <img src="/frontend/src/assets/register-img.png">
+                </div>
+            <div class="form-section">
+                <div class="form-content">
+                <form>
+                    <div class="welcome">
+                        <h2>BEM-VINDO!</h2>
+                        <p>Coloque seus dados pessoais para criar sua conta</p>
+                    </div>
+
+                    <label>Email</label>
+                    <input type="email" required placeholder="Insira seu E-mail" id="email"/>
+
+                    <label>Senha</label>
+                    <div class="input-wrapper">
+                        <input type="password" required placeholder="Insira sua senha" id="senha"/>
+                        <span class="toggle-password" onclick="togglePassword()">
+                        </span>
+                    </div>
+
+                    <a href="#">Esqueceu sua senha?</a>
+                    
+                    <label></label>
+                    <button type="submit" class="log-in-btn">Login</button>
+
+                    <div class="divider">ou entre com</div>
+
+                    <div class="social-login">
+                        <button class="google-btn">
+                            
+                        </button>
+                        <button class="apple-btn">
+                            
+                        </button>
+                    </div>
+                    <p class="register">Não tem uma conta ainda?<a href="/frontend/src/pages/signup.html"> Registre-se</a></p>
+                </div>
+                </form>
+            </div>
+    </div>
+</body>
+</html>
