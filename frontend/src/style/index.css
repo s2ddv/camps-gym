@@ -1,0 +1,128 @@
+body{
+    background-color: #121212;
+}
+
+#container-register{
+    height: 913px;
+    background-image: url('../assets/back-image-register.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: -40px;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+h4{
+    font-family: "Anton", sans-serif;
+    font-size: 300px;
+    color: #FFFFFF;
+    margin-left: 350px;
+    margin-top: 100px;
+    font-weight: normal;
+}
+
+.register-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 370px;
+    background: linear-gradient(to right, #41371E, #F6AE01);
+    font-weight: bold;
+    transform-origin: 0 0;
+    transform: skewX(-20deg);
+    border: 2px solid white; 
+    overflow: hidden;
+    margin-left: 850px;
+    text-decoration: none;
+}
+
+.register-button a{
+    text-decoration: none;
+}
+
+h5{
+    font-family: "Oswald", sans-serif;
+    text-decoration: none;
+    transform: skewX(20deg);
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+#container-time{
+    height: 913px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.container-image-time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-gym{
+    border: #F6AE01 10px solid;
+}
+
+.container-informations-time{
+    align-items: center;
+    margin-top: 130px;
+    line-height: 4rem;
+}
+
+hr{
+    border: none;
+    height: 5px;
+    width: 50px;
+    background-color: #F6AE01;
+    margin: 0; 
+}
+
+h6{
+    font-family: "Oswald", sans-serif;
+    font-size: 30px;
+    color: #F6AE01;
+    font-weight: bold;
+    display: flex;
+}
+
+.informations-title{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+}
+
+.container-informations{
+    color: #FFFFFF;
+    font-family: "Anton", sans-serif;
+    font-size: 45px;
+}
+
+h3{
+    font-family: "Oswald", sans-serif;
+    font-size: 25px;
+}
+
+.work-time{
+    color: #F6AE01;
+}
+
+.maps-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 270px;
+    font-size: 30px;
+    border: #F6AE01 6px solid;
+}
+
+.maps-button a{
+    font-family: "Oswald", sans-serif;
+    text-decoration: none;
+    color: #FFFFFF;
+}
