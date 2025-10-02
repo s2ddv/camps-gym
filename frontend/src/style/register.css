@@ -7,6 +7,10 @@
     font-family: "Montserrat", sans-serif;
 }
 
+body { 
+    background-color: #ffbf00;
+}
+
 .container { 
     display: flex;
     flex-direction: row;
@@ -79,7 +83,7 @@ a {
     font-size: 0.8rem;
     text-align: right;
     color: #f6ae01;
-    transition: color 0.4s ease-in-out;
+    transition: color 0.4s ease;
 }
 
 a:hover {
@@ -98,7 +102,7 @@ a:hover {
 }
 
 .log-in-btn {
-    transition: background-color 0.4s ease-in-out;
+    transition: background-color 0.4s ease;
 }
 
 .log-in-btn:hover {
@@ -209,7 +213,7 @@ a:hover {
 }
 
 input { 
-    transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 input:focus {
