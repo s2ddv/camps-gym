@@ -1,6 +1,5 @@
 * { 
     margin: 0;
-    
 }
 
 body{
@@ -100,7 +99,7 @@ nav{
   transform: rotate(-45deg);
 }
 
-h1{
+h1 {
     font-family: "Anton", sans-serif;
     color: #FFFFFF;
     font-weight: normal;
