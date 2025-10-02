@@ -1,3 +1,5 @@
-fetch("https://jsonplaceholder.typicode.com/products")
-    .then(res => res.json())
-    .then(data = {})
+const productsList = document.getElementById('productList');
+
+const loadProducts = async() => { 
+    
+}
