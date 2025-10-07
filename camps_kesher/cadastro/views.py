@@ -6,6 +6,21 @@ from rest_framework import viewsets,status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def home(request): 
+    return render(request, "index.html", {})
+
+def authView(request):
+    if request.method == "POST": 
+        form = UserCreationForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+        else:
+            form = UserCreationForm()
+            return render(request, "registration/signup.html", {"form":  form})
 
 Usuario = get_user_model()
 
