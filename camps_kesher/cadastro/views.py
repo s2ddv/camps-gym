@@ -9,20 +9,17 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
-@login_required
-def home(request): 
-    return render(request, "index.html", {})
-
-def authView(request):
-    if request.method == "POST": 
-        form = UserCreationForm(request.POST or None)
-        if form.is_valid():
-            form.save()
-        else:
-            form = UserCreationForm()
-            return render(request, "registration/signup.html", {"form":  form})
-
 Usuario = get_user_model()
+
+def cadastro(request): 
+    if request.method == "GET":
+        return render(request, 'cadastro.html')
+    else: 
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        return HttpResponse(email)
+def login(request):
+    return render(request, 'login.html')
 
 class UsuarioListCreate(generics.ListCreateAPIView):
     queryset = Usuario.objects.all()
@@ -50,7 +47,6 @@ class UsuarioViewSet(viewsets.ModelViewSet):
             return UsuarioCreateSerializer
         return UsuarioSerializer
 
-    # 🔹 rota customizada: /usuarios/{id}/change-password/
     @action(detail=True, methods=["post"], url_path="change-password")
     def change_password(self, request, pk=None):
         user = self.get_object()
