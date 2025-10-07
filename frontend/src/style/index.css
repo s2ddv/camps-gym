@@ -126,3 +126,111 @@ h3{
     text-decoration: none;
     color: #FFFFFF;
 }
+
+#container-classes{
+    height: 110vh;
+}
+
+.container-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-class{
+    font-size: 60px;
+    font-family: "Anton", sans-serif;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+.subtitle-class{
+    font-family: "Oswald", sans-serif;
+    font-size: 38px;
+    font-weight: lighter;
+    color: #F6AE01;
+}
+
+.container-exercises{
+    height: 94.5vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 100px;
+    gap: 10px;
+}
+
+.functional-img{
+    width: 420px;
+    height: 585px;
+    background-image: url(/frontend/src/assets/img\ -\ funcional.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.functional-exercise :hover{
+    transform: scale(1.08);
+}
+
+.exercise-name{
+    font-family: "Anton", sans-serif;
+    font-size: 38px;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+.jump-img{
+    width: 420px;
+    height: 585px;
+    background-image: url(/frontend/src/assets/img\ -\ jumping.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.jump-exercise :hover{
+    transform: scale(1.08);
+}
+
+.kick-img{
+    width: 420px;
+    height: 585px;
+    background-image: url(/frontend/src/assets/img\ -\ kickboxing.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.kickboxing-exercise :hover{
+    transform: scale(1.08);
+}
+
+.ritmos-img{
+    width: 420px;
+    height: 585px;
+    background-image: url(/frontend/src/assets/img\ -\ ritmo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.ritmos-exercise :hover{
+    transform: scale(1.08);
+}
