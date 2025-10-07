@@ -108,6 +108,14 @@ h1 {
     margin-left: 10px;
 }
 
+.logo-camps{
+    display: flex;
+    z-index: 1;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
 .container-footer{
     display: flex;
     height: 30vh;
