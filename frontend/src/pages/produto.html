@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/frontend/src/style/produto.css">
+    <link rel="stylesheet" href="/frontend/src/main.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="off-screen-menu">
+            <h1>CAMPS</h1>
+                <ul>
+                    <li>
+                        <a href="/frontend/src/pages/login.html"><img src="/frontend/src/assets/icon-profile.png" style="width: 55px;"></a>
+                        <a href="/frontend/src/pages/login.html">MEU PERFIL</a>
+                    </li>
+                    <li>
+                        <a href=""><img src="/frontend/src/assets/icon-aboutus.png" style="width: 55px; height: 60px;"></a>
+                        <a href="#">SOBRE NÓS</a>
+                    </li>
+                    <li>
+                        <a href=""><img src="/frontend/src/assets/icon-cart.png" style="width: 55px;"></a>
+                        <a href="#">CARRINHO</a>
+                    </li>
+                    <li>
+                        <a href=""><img src="/frontend/src/assets/icon-plans.png" style="width: 55px;"></a>
+                        <a href="#">PLANOS</a>
+                    </li>
+                    <li>
+                        <a href=""><img src="/frontend/src/assets/icon-store.png" style="width: 55px;"></a>  
+                        <a href="#">LOJA</a>
+                    </li>
+                </ul>
+        </div>
+        <nav>
+            <div class="ham-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="back-arrow">
+            <a class="back-arrow" href="/frontend/src/pages/index.html"><img src="/frontend/src/assets/icons8-back-orange-50.png" style="width: 40px;"> HOME / PRODUCT DETAILS</a>
+        </div>
+        <section class="main-section">
+            <div class="main-grid">
+                <div class="img-grid">
+                    <div class="main-img">
+                        <div class="main-thumb-grid">
+                            <img src="/frontend/src/assets/garrafa-produto-grid.png">
+                        </div>
+                        <div class="thumb-grid">
+                            <div class="thumb-img">
+                                <img src="/frontend/src/assets/garrafa-produto-details(1).png">
+                                <img src="/frontend/src/assets/garrafa-produto-details(2).png">
+                                <img src="/frontend/src/assets/garrafa-produto-details(3).png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="details-grid">
+                    <p>XXX/XXX</p>
+                    <h3>XXX</h3>
+                    <p>R$XX.XX</p>
+                    <p>Select Size</p>
+                    <div class="size">
+                        <button id="size">S</button>
+                        <button id="size">M</button>
+                        <button id="size">L</button>
+                        <button id="size">LL</button>
+                        <button id="size">XL</button>
+                    </div>
+                    <div class="add-section">
+                        <div class="add-cart">
+                            <button class="cart-btn">Add to Cart</button>
+                        </div>
+                        <div class="add-fav">
+                            <button class="add-fav">
+                                <img src="/frontend/src/assets/icons8-fav-50.png">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container-footer">
+            <div class="footer-left">
+                <h2>Av. Izabel Ferreira Coelho,</h2>
+                <h2>106 - Jardim Ana Claudia,</h2>
+                <h2>Votorantim - SP, 18112-390.</h2>
+                <br>
+                <h2>Número de contato:</h2>
+                <h2>(15) 99674-4027</h2>
+                <br>
+                <div class="footer-buttons">
+                    <a href="https://totalpass.com/br/academias/camps-academia/"><img src="/frontend/src/assets/icon-tp.png" style="width: 55px;"></a>
+                    <a href="https://www.instagram.com/camps_academia/"><img src="/frontend/src/assets/icon-instagram.png" style="width: 55px;"></a>
+                    <a href="https://www.facebook.com/campsacademia/?locale=pt_BR"><img src="/frontend/src/assets/icon-facebook.png" style="width: 55px;"></a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <h2>© 2025 por Camps Gym. Criado e <br>protegido por Kesher</h2>
+                <img src="/frontend/src/assets/logo-kesher-Photoroom.png" style="width: 190px;">
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script> 
+    <script src="/frontend/src/lib/features/lenis-init.js"></script> 
+    <script src="/frontend/src/lib/features/lenis.js"></script>
+    <script src="/frontend/src/lib/features/menu.js"></script>
+</body>
+</html>
