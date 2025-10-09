@@ -5,9 +5,11 @@
     text-decoration: none;
     list-style: none;
 }
+
 a { 
     color: black;
 }
+
 .nav-section { 
     display: flex;
     justify-content: space-between;
@@ -83,7 +85,7 @@ a {
 .price { 
     font-size: 1.5rem;
     font-weight: bold;
-    color: goldenrod;
+    color: #daa520;
     margin-bottom: 1rem;
 }
 

@@ -1,0 +1,136 @@
+* { 
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+a { 
+    color: black;
+}
+
+.back-arrow img { 
+    margin-top: 10px;
+}
+
+.back-arrow { 
+    display: flex;
+    align-self: center;
+    padding: 20px;
+    align-items: center;
+}
+
+.main-grid { 
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.details-grid { 
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 2px 5px gainsboro;
+}
+
+.main-img { 
+    box-shadow: 0 2px 5px gainsboro;
+    border-radius: 16px;
+}
+
+.img-grid img { 
+    width: 70%;
+}
+
+.img-grid { 
+    display: flex;
+    gap: 1rem;
+    justify-self: center;
+}
+
+.main-thumb-grid { 
+    display: flex;
+    justify-content: center;
+}
+
+.thumb-grid { 
+    display: flex;
+    justify-content: center;
+}
+
+.thumb-img { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-self: center;
+    padding: 1.5rem;
+}
+
+.thumb-img img { 
+    width: 80%;
+    height: 80%;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 2px 5px gainsboro;
+}
+
+.thumb-img img:hover { 
+    transform: scale(1.05);
+}
+
+.size { 
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding: 15px;
+    height: 60px;
+}
+
+#size { 
+    border-radius: 40px;
+    border: none;
+    outline: none;
+}
+
+.add-section { 
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.add-cart { 
+    display: grid;
+    justify-self: center;
+}
+
+.cart-btn { 
+    border-radius: 60px;
+    background-color: #252525;
+    transition: background-color 0.4 ease-in-out;
+    color: #fff;
+    border: none;
+    outline: none;
+    margin-left: 23rem;
+    width: 50rem;
+}
+
+.cart-btn:hover { 
+    background-color: goldenrod;
+    
+}
+
+.add-fav { 
+    background-color: #fff;
+    border: none;
+    outline: none;
+    justify-self: flex-end;
+    margin-right: 20px;
+}
+
+h3, p { 
+    padding: 10px;
+}
