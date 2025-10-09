@@ -6,8 +6,9 @@ from rest_framework import viewsets,status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+
 
 Usuario = get_user_model()
 
@@ -61,3 +62,18 @@ class UsuarioViewSet(viewsets.ModelViewSet):
             return Response({"status": "senha alterada com sucesso ✅"})
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+@login_required
+def cadastrar_produto(request):
+    # Apenas professores podem cadastrar produtos
+    if request.user.tipo != 'professor':
+        return render(request, 'produtos/nao_autorizado.html', status=403)
+
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(request, 'products_list.html')
+    else:
+        form = ProdutoForm()
+
+    return render(request, 'produtos/crud_produtos.html', {'form': form})

@@ -12,7 +12,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
         fields = ["id", "username", "first_name", "last_name",
-"idade", "email", "telefone", "fisico"]
+                  "idade", "email", "telefone", "tipo", "fisico"]
 
 class UsuarioCreateSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -20,7 +20,7 @@ class UsuarioCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
         fields = ["id", "username", "first_name", "last_name",
-                  "idade", "email", "telefone", "password"]
+                  "idade", "email", "telefone", "tipo", "password"]
 
     def create(self, validated_data):
         user = Usuario(
@@ -30,6 +30,7 @@ class UsuarioCreateSerializer(serializers.ModelSerializer):
             idade=validated_data.get("idade"),
             email=validated_data.get("email"),
             telefone=validated_data.get("telefone"),
+            tipo=validated_data.get("tipo", "aluno"),
         )
         user.set_password(validated_data.get("password"))
         user.save()

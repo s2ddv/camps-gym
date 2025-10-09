@@ -8,4 +8,6 @@ urlpatterns = [
     path("usuarios/<int:pk>/", views.UsuarioDetail.as_view(), name="usuario-detail"),
     path("fisico/", views.FisicoListCreate.as_view(), name="fisico-list"),
     path("fisicos/<int:pk>/", views.FisicoDetail.as_view(), name="fisico-detail"),
+    path('produtos/', include('produtos.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
 ]
