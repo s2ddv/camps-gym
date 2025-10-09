@@ -8,7 +8,7 @@ body {
 .banner {
 position: relative;
 width: 100%;
-height: 420px; /* Aumenta a altura do banner */
+height: 400px; 
 background-color: #000;
 display: flex;
 align-items: center;
@@ -18,7 +18,7 @@ justify-content: center;
 .banner img {
 height: auto;
 display: block;
-object-fit: contain; /* mantém proporção exata da imagem */
+object-fit: contain; 
 border: none;
 }
 
@@ -45,6 +45,7 @@ border: none;
       background-color: #111;
       font-family: "Oswald", sans-serif;
       font-weight: bold;
+      margin-top: 10px;
     }
 
     .box img {

@@ -5,15 +5,22 @@ background-color: #111;
 color: #fff;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 .sobre-nos {
 position: relative;
 text-align: left;
+margin-top: -40px;
 }
 
 .sobre-nos img {
 width: 100%;
 height: 600px;
 object-fit: cover;
+display: block; 
 }
 
 .sobre-nos-texto {
@@ -36,19 +43,39 @@ font-size: 18px;
 
 
 .molduras {
-display: flex;
-justify-content: center;
-gap: 100px;
-margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin: 40px 0;
 }
 
 .moldura {
-width: 300px;
-height: 250px;
-border: 2px solid #fff;
-background-color: transparent;
+  width: 300px;
+  height: 250px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  position: relative; 
+  overflow: hidden;
 }
 
+.moldura img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nome {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: #fff;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "Anton", sans-serif;
+  font-weight: 100;
+}
 
 .nossa-historia {
 display: flex;
