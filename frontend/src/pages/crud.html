@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Produto</title>
+  <link rel="stylesheet" href="../style/crud.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Lado esquerdo com imagem -->
+    <div class="left-section">
+      <div class="overlay"></div>
+      <img src="../assets/fotocadastroprodutos.jpg" alt="Foto à esquerda">
+    </div>
+
+    <!-- Lado direito com formulário -->
+    <div class="right-section">
+      <h1>CADASTRAR PRODUTO</h1>
+      <p>Adicione as informações do produto para disponibilizá-lo na loja.</p>
+
+      <form action="#" method="POST" class="form-produto">
+        <div class="form-group">
+          <label for="nome">Nome do Produto</label>
+          <input type="text" id="nome" name="nome" placeholder="Ex: Garrafa Esportiva" required>
+        </div>
+
+        <div class="form-group">
+          <label for="categoria">Categoria</label>
+          <select id="categoria" name="categoria" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="roupas">Roupas</option>
+            <option value="acessorios">Acessórios</option>
+            <option value="suplementos">Suplementos</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="preco">Preço (R$)</label>
+          <input type="number" id="preco" name="preco" step="0.01" placeholder="Ex: 59.90" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cor">Cor</label>
+          <textarea id="cor" name="cor" rows="1" placeholder="Cor dominante no produto" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="tamanho">Tamanho</label>
+          <select id="tamanho" name="tamanho" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="roupas">P</option>
+            <option value="acessorios">M</option>
+            <option value="suplementos">G</option>
+            <option value="suplementos">GG</option>
+            <option value="outros">500ml</option>
+            <option value="outros">Regulável</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="imagem">Imagem do Produto</label>
+          <input type="file" id="imagem" name="imagem" accept="image/*" required>
+        </div>
+
+        <button type="submit" class="btn-cadastrar">Cadastrar</button>
+      </form>
+
+      <a href="../pages/products-list.html" class="voltar">← Voltar a loja</a>
+    </div>
+  </div>
+</body>
+</html>
