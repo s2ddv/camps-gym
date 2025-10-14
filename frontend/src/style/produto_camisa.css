@@ -26,7 +26,6 @@ a {
     grid-template-columns: repeat(2,minmax(0, 1fr));
     gap: 2rem;
     width: 100%;
-    
 }
 
 .details-grid { 
@@ -38,6 +37,11 @@ a {
     margin: 10px 50px 20px 50px;
 }
 
+.img-grid { 
+    display: grid;
+    grid-template-columns: repeat(2, minxmax(0, 1fr));
+}
+
 .main-img { 
     box-shadow: 0 2px 5px gainsboro;
     border-radius: 16px;
@@ -46,32 +50,6 @@ a {
 
 .img-grid img { 
     width: 70%;
-}
-
-.img-grid { 
-    display: flex;
-    gap: 1rem;
-    justify-self: center;
-    padding-left: 10px;
-}
-
-.main-thumb-grid { 
-    display: flex;
-    justify-content: center;
-}
-
-.thumb-grid { 
-    display: flex;
-    justify-content: center;
-}
-
-.thumb-img { 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 1rem;
-    justify-self: center;
-    padding: 1.5rem;
 }
 
 .thumb-img img { 
