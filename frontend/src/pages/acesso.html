@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso Restrito - CAMPS</title>
+  <link rel="stylesheet" href="../style/acesso.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Lado esquerdo -->
+    <div class="left-section">
+      <div class="icon">
+        <img src="/frontend/src/assets/icon-camps.png" alt="Logo CAMPS">
+      </div>
+    </div>
+
+    <!-- Lado direito (formulário) -->
+    <div class="right-section">
+      <h1>PÁGINA RESTRITA</h1>
+      <p class="subtitle">Para funcionários <span>CAMPS</span></p>
+
+      <form id="access-form" onsubmit="return checkPassword(event)">
+        <div class="input-group">
+          <label for="senha">Senha de Acesso</label>
+          <input type="password" id="senha" placeholder="Digite a senha">
+        </div>
+        <button type="submit">Entrar</button>
+        <p class="back-link"><a href="index.html">← Voltar à página inicial</a></p>
+      </form>
+
+      <p id="error-message" class="error-message"></p>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword(event) {
+      event.preventDefault();
+      const senhaCorreta = "camps123"; // ← Você pode alterar essa senha
+      const senhaDigitada = document.getElementById('senha').value;
+      const errorMsg = document.getElementById('error-message');
+
+      if (senhaDigitada === senhaCorreta) {
+        window.location.href ="crud.html"; // redireciona para a página de cadastro
+      } else {
+        errorMsg.textContent = "Senha incorreta. Tente novamente.";
+      }
+    }
+  </script>
+</body>
+</html>

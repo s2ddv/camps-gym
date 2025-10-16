@@ -8,6 +8,11 @@
 </head>
 <body>
   <div class="container">
+    <!-- Mensagem de sucesso -->
+    <div id="successMessage" class="success-message">
+      Produto cadastrado com sucesso!
+    </div>
+
     <!-- Lado esquerdo com imagem -->
     <div class="left-section">
       <div class="overlay"></div>
@@ -19,7 +24,7 @@
       <h1>CADASTRAR PRODUTO</h1>
       <p>Adicione as informações do produto para disponibilizá-lo na loja.</p>
 
-      <form action="#" method="POST" class="form-produto">
+      <form id="formProduto" class="form-produto">
         <div class="form-group">
           <label for="nome">Nome do Produto</label>
           <input type="text" id="nome" name="nome" placeholder="Ex: Garrafa Esportiva" required>
@@ -45,18 +50,20 @@
           <label for="cor">Cor</label>
           <textarea id="cor" name="cor" rows="1" placeholder="Cor dominante no produto" required></textarea>
         </div>
+
         <div class="form-group">
           <label for="tamanho">Tamanho</label>
           <select id="tamanho" name="tamanho" required>
             <option value="" disabled selected>Selecione...</option>
-            <option value="roupas">P</option>
-            <option value="acessorios">M</option>
-            <option value="suplementos">G</option>
-            <option value="suplementos">GG</option>
-            <option value="outros">500ml</option>
-            <option value="outros">Regulável</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+            <option value="500ml">500ml</option>
+            <option value="Regulável">Regulável</option>
           </select>
         </div>
+
         <div class="form-group">
           <label for="imagem">Imagem do Produto</label>
           <input type="file" id="imagem" name="imagem" accept="image/*" required>
@@ -65,8 +72,45 @@
         <button type="submit" class="btn-cadastrar">Cadastrar</button>
       </form>
 
-      <a href="../pages/products-list.html" class="voltar">← Voltar a loja</a>
+      <a href="../pages/products-list.html" class="voltar">← Voltar à loja</a>
     </div>
   </div>
+<style>
+    .success-message {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.5s ease;
+      z-index: 1000;
+    }
+
+    .success-message.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+  <script>
+    const form = document.getElementById('formProduto');
+    const successMessage = document.getElementById('successMessage');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      successMessage.classList.add('show');
+      setTimeout(() => {
+        successMessage.classList.remove('show');
+      }, 3000);
+      form.reset();
+    });
+  </script>
 </body>
 </html>
+
