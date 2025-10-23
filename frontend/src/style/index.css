@@ -250,7 +250,7 @@ input:checked + .card .description {
 }
 
 #c6 + .card {
-    background-image: url('/frontend/src/assets/img\ -\ Taekwondo.jpg');
+    background-image: url('/frontend/src/assets/img\ -\ taekwondo.jpg');
     background-size: cover;
     background-position: center;
 }
