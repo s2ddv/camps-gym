@@ -1,0 +1,84 @@
+body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+.banner {
+position: relative;
+width: 100%;
+height: 400px; 
+background-color: #000;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.banner img {
+height: auto;
+display: block;
+object-fit: contain; 
+border: none;
+}
+
+    .titulo {
+      position: relative;
+      text-align: center;
+      margin: 20px 0;
+      margin-top: 40px;
+      font-size: 48px;
+      font-weight: 100;
+      font-family: "Anton", sans-serif;
+      font-weight: lighter;
+      color: #f7b500; 
+    }
+
+    .box {
+      display: flex;
+      align-items: flex-start;
+      border: 2px solid #f7b500;
+      border-radius: 12px;
+      margin: 40px auto;
+      padding: 20px;
+      width: 75%;
+      background-color: #111;
+      font-family: "Oswald", sans-serif;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .box img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border: 3px solid #f7b500;
+      border-radius: 5px;
+      margin-right: 20px;
+    }
+
+    .conteudo {
+      flex: 2;
+    }
+
+    .conteudo h3 {
+      color: #f7b500;
+      margin-top: 5px;
+    }
+
+    .horarios {
+      border-left: 2px solid #f7b500;
+      padding-left: 50px;
+      margin-left: 50px;
+      min-width: 165px;
+      height: 200px;
+    }
+
+    .horarios h4 {
+      color: #f7b500;
+      margin-top: 12px;
+    }
+
+    .horarios p {
+        margin-top: 15px;
+    }

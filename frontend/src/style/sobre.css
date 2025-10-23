@@ -52,7 +52,7 @@ font-size: 18px;
 .moldura {
   width: 300px;
   height: 250px;
-  border: 2px solid #fff;
+  border: 3px solid #f9c300;
   background-color: transparent;
   position: relative; 
   overflow: hidden;
@@ -79,26 +79,29 @@ font-size: 18px;
 
 .nossa-historia {
 display: flex;
-align-items: flex-start;
 gap: 40px;
 padding: 40px;
+margin-bottom: 36px;
 }
 
 .nossa-historia img {
 width: 35%;
-border-radius: 5px;
+border: 5px solid #f9c300;
 }
 
 .nossa-historia-texto h2 {
-font-size: 35px;
-margin-bottom: 8px;
-margin-right: 380px;
+font-size: 50px;
+margin-top: 20px;
+font-family: "Anton", sans-serif;
+color: #f9c300; 
+font-weight: 100;
 }
 
 .nossa-historia-texto h3 {
 font-size: 18px;
-color: #f9c300; 
+color: white; 
 margin-bottom: 15px;
+margin-left: 42px;
 }
 
 .nossa-historia-texto p {
