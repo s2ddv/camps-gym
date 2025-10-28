@@ -1,27 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const categoria = document.title.split()
-    fetchProdutos();
-})
-
-function fetchProdutos(){ 
-    fetch('http://localhost:8000/api/produtos/')
-    .then(res => res.json())
-    .then(data => renderProdutos(data))
-    .catch(err => console.error("Erro ao buscar produtos", err));
-}
-
-function renderProdutos(produtos){ 
-    const container = document.getElementById("container");
-    container.innerHTML = "";
-
-    produtos.forEach(produtos => { 
-        const card = document.createElement("div");
-        card.className = "produtos";
-
-        const imagemUrl = `http://localhost:8000/media/${produtos.imagem}`;
-
-        card.innerHTML = `
-        <section class="main-section">
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    fetch(`http://127.0.0.1:8000/api/produtos/${id}/`)
+        .then(response => { 
+            if (!response.ok) throw new Error('Erro ao buscar produtos');
+            return response.json();
+        })
+        .then(data => { 
+            const produto = data
+            const container = document.getElementById('produtos')
+            container.innerHTML = '';
+                const produtoDiv = document.getElementById('produto');
+                produtoDiv.className = 'produto';
+                const imagemUrl = `${produto.imagem}`;
+                produto.innerHTML = `
+                <section class="main-section">
             <div class="main-grid">
                 <div class="img-grid">
                     <div class="main-img">    
@@ -60,7 +53,10 @@ function renderProdutos(produtos){
                 </div>
             </div>
         </section>
-        `
-        container.appendChild(card);
-    });
-}
+        `;
+        container.appendChild();
+        })
+        .catch(error => { 
+            console.error('Erro ao carregar produtos', error);
+        })
+})
