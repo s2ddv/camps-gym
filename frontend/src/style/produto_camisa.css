@@ -27,9 +27,10 @@ a {
 
 .main-grid { 
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     width: 100%;
+    margin: 0 auto;
 }
 
 .details-grid { 
@@ -55,17 +56,27 @@ a {
 }
 
 .main-thumb-grid { 
-    display: grid;
+    display: flex;
     align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+.main-thumb-grid img {
+    object-fit: cover;
 }
 
-.img-grid img { 
+.img-grid img,
+.thumb-img img { 
     width: 70%;
+}
+
+.thumb-img img { 
+    max-width: 400px;
 }
 
 .thumb-img { 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     align-items: center;
 }
@@ -155,4 +166,49 @@ h3 {
 
 .product-details-text { 
     color: #616161;
+}
+
+.change-color { 
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0 auto;
+    width: 400px;
+    height: 100px;
+}
+
+.change-color-btn1,
+.change-color-btn2,
+.change-color-btn3 { 
+    cursor: pointer;
+    border: none;
+}
+
+.change-color-btn1 { 
+    background-color: #000000;
+}
+
+.change-color-btn2 { 
+    background-color: #084808;
+}
+
+.change-color-btn3 { 
+    background-color: #6c3c0c;
+}
+
+.change-size-btn1,
+.change-size-btn2,
+.change-size-btn3,
+.change-size-btn4,
+.change-size-btn5 { 
+    cursor: pointer;
+    border: none;
+}
+
+.change-size { 
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding: 15px;
+    height: 60px;
 }
