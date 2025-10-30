@@ -14,10 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const produto = data
             const container = document.getElementById('produto')
             container.innerHTML = '';
-                const produtoDiv = document.getElementById('produto');
-                produtoDiv.className = 'produto';
                 const imagemUrl = `${produto.imagem}`;
-                produto.innerHTML = `
+                container.innerHTML = `
                 <section class="main-section">
                     <div class="main-grid">
                         <div class="img-grid">
@@ -30,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                     <div class="details-grid">
-                        <p>${produto.categoria}</p>
+                        <p>${produto.categoria.nome}</p>
                         <h3>${produto.nome}</h3>
                         <p>R$ ${produto.preco}</p>
                         <div class="add-section"> 
@@ -38,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <button class="buy-now-btn">BUY NOW</button>
                             </div>
                             <div class="add-cart">
-                                <button class="cart-btn">ADD TO CART</button>
+                                <button class="cart-btn" onclick("adicionarAoCarrinho")>ADD TO CART</button>
                             </div>
                             <p>Color:</p>
                             <div class="change-color">
@@ -47,18 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <button class="change-color-btn3"></button>
                             </div>
                             <div class="change-size">
-                                <button class="change-size-btn1"></button>
-                                <button class="change-size-btn2"></button>
-                                <button class="change-size-btn3"></button>
-                                <button class="change-size-btn4"></button>
-                                <button class="change-size-btn5"></button>
+                                <button class="change-size-btn1">P</button>
+                                <button class="change-size-btn2">M</button>
+                                <button class="change-size-btn3">G</button>
+                            </div>
+                            <div class="product-details">
+                            
                             </div>
                         </div>
                     </div>
                 </div>
         </section>
         `;
-        container.appendChild(produtoDiv);
         })
         .catch(error => { 
             console.error('Erro ao carregar produtos', error);
@@ -79,4 +77,8 @@ function adicionarAoCarrinho(nome, preco) {
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
     alert(`${nome} adicionado ao carrinho!`)
+}
+
+function selecionarCor(cor) {
+
 }
