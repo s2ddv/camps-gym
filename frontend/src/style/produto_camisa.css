@@ -15,7 +15,7 @@ a {
 }
 
 .back-arrow img { 
-    margin-top: 10px;
+    margin-top: 1px;
 }
 
 .back-arrow { 
@@ -138,6 +138,7 @@ h3 {
     outline: none;
     width: 48rem;
     height: 3rem;
+    cursor: pointer;
 }
 
 .cart-btn { 
@@ -148,6 +149,7 @@ h3 {
     outline: none;
     width: 48rem;
     height: 3rem;
+    cursor: pointer;
 }
 
 .cart-btn:hover { 
@@ -171,10 +173,10 @@ h3 {
 .change-color { 
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 0 auto;
-    width: 400px;
-    height: 100px;
+    gap: 1.5rem;
+    padding: 15px;
+    height: 60px;
+    border-radius: 10px;
 }
 
 .change-color-btn1,
@@ -182,6 +184,7 @@ h3 {
 .change-color-btn3 { 
     cursor: pointer;
     border: none;
+    border-radius: 8px;
 }
 
 .change-color-btn1 { 
@@ -198,17 +201,17 @@ h3 {
 
 .change-size-btn1,
 .change-size-btn2,
-.change-size-btn3,
-.change-size-btn4,
-.change-size-btn5 { 
+.change-size-btn3 { 
     cursor: pointer;
     border: none;
+    border-radius: 8px;
 }
 
 .change-size { 
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
     padding: 15px;
     height: 60px;
+    border-radius: 8px;
 }
