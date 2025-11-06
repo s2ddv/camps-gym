@@ -27,7 +27,11 @@ def add_to_cart(request):
         tamanho = data.get("size")
 
         try: 
-            variacao = ProdutoVariacao.objects.get(produto_id=produto_id, cor=cor, tamanho__nome=tamanho)
+            variacao = ProdutoVariacao.objects.get(
+                produto_id=produto_id, 
+                cor=cor, 
+                tamanho__nome=tamanho
+                )
         except ProdutoVariacao.DoesNotExist: 
             return JsonResponse({"error": "Variação não encontrada"}, status=404)
 
