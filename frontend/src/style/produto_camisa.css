@@ -61,6 +61,7 @@ a {
     gap: 1rem;
     justify-content: center;
 }
+
 .main-thumb-grid img {
     object-fit: cover;
 }
@@ -85,20 +86,6 @@ a {
     border-radius: 8px;
     object-fit: cover;
     cursor: pointer;
-}
-
-.size { 
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 1.5rem;
-    padding: 15px;
-    height: 60px;
-}
-
-#size { 
-    border-radius: 40px;
-    border: none;
-    outline: none;
 }
 
 .add-section { 
@@ -214,4 +201,12 @@ h3 {
     padding: 15px;
     height: 60px;
     border-radius: 8px;
+    transition: all 0.4s;
+}
+
+.change-size-btn1,
+.change-size-btn2,
+.change-size-btn3 .selected { 
+    border-color: #000000;
+
 }

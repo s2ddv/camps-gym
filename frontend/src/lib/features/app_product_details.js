@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p>R$ ${produto.preco}</p>
                         <div class="add-section"> 
                             <div class="buy-now">
-                                <button class="buy-now-btn">BUY NOW</button>
+                                <button id="buyBtn" class="buy-now-btn">BUY NOW</button>
                             </div>
                             <div class="add-cart">
                                 <button class="cart-btn" onclick("adicionarAoCarrinho")>ADD TO CART</button>
@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <button class="change-color-btn3"></button>
                             </div>
                             <div class="change-size">
-                                <button class="change-size-btn1">P</button>
-                                <button class="change-size-btn2">M</button>
-                                <button class="change-size-btn3">G</button>
+                                <button data-size="P">P</button>
+                                <button data-size="M">M</button>
+                                <button data-size="G">G</button>
                             </div>
                             <div class="product-details">
                             
@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Erro ao carregar produtos', error);
         });
 });
+
+let selectedSize = null;
+
+document.querySelectorAll('.change-size button')
 
 function adicionarAoCarrinho(nome, preco) { 
     let carrinho = 
