@@ -151,3 +151,7 @@ h2{
     justify-content: center;
     margin-right: 40px;
 }
+
+.btn-index{
+    text-decoration: none;
+}
