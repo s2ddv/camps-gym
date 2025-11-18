@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Planos | Camps</title>
+  <title>Planos</title>
   <link rel="stylesheet" href="/frontend/src/main.css">
   <link rel="stylesheet" href="/frontend/src/style/planos.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,10 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
-
         <header>
         <div class="off-screen-menu">
-            <a href="/frontend/src/pages/index.html" class="btn-index"><h1>CAMPS</h1></a>
+            <h1>CAMPS</h1>
                 <ul>
                     <li>
                         <a href="/frontend/src/pages/login.html"><img src="/frontend/src/assets/icon-profile.png" style="width: 55px;"></a>
@@ -36,10 +35,6 @@
                     </li>
                     <li>
                         <a href="/frontend/src/pages/planos.html"><img src="/frontend/src/assets/icon-plans.png" style="width: 55px;"></a>
-                        <a href="/frontend/src/pages/planos.html">PLANOS</a>
-                    </li>
-                    <li>
-                        <a href=""><img src="/frontend/src/assets/icon-class-gym.png" style="width: 55px;"></a>  
                         <a href="/frontend/src/pages/aulas.html">AULAS</a>
                     </li>
                     <li>
@@ -55,10 +50,6 @@
                 <span></span>
                 <span></span>
             </div>
-
-            <div class="logo-camps">
-                <img src="/frontend/src/assets/icon-camps.png" style="width: 120px;">
-            </div>
         </nav>
     </header>
     
@@ -71,16 +62,14 @@
   <section class="planos-section">
     <div class="plano-card plano-semestral">
       <h2 class="titulo-semestral">PLANO SEMESTRAL</h2>
-      <div class="bloco-preco">
       <p class="parcelas">6X</p>
       <p class="valor">88,00<span>R$</span></p>
-      </div>
       <p class="descricao">(R$ 528,00 à vista ou até 6 vezes no cartão de crédito)</p>
       <button>ESCOLHER</button>
     </div>
 
     <div class="plano-card plano-mensal destaque">
-      <h2 class="titulo-mensal">PLANO MENSAL</h2>
+      <h2>PLANO MENSAL</h2>
       <p class="valor">121,00<span>R$</span></p>
       <p class="descricao">À vista<br>(Dinheiro, pix, débito ou crédito)</p>
       <button>ESCOLHER</button>
@@ -88,10 +77,8 @@
 
     <div class="plano-card plano-anual">
       <h2 class="titulo-anual">PLANO ANUAL + CLUB</h2>
-      <div class="bloco-preco">
       <p class="parcelas">12X</p>
       <p class="valor">72,00<span>R$</span></p>
-      <div class="bloco-preco"></div>
       <p class="descricao">(R$ 864,00 à vista ou até 12 vezes no cartão de crédito)</p>
       <button>ESCOLHER</button>
     </div>
@@ -123,5 +110,7 @@
             </div>
         </div>
     </footer>
-    <script src="/frontend/src/lib/features/menu.js"></script>
+
+        <script src="/frontend/src/js/planos.js"></script>
+
 </html>
