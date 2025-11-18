@@ -1,14 +1,10 @@
-// VARIÁVEL GLOBAL: Usada para armazenar a lista completa de produtos
 let todosProdutos = [];
 
 window.onload = function() {
     buscarProdutos();
-    
-    // 1. Adiciona o listener para o campo de busca (ID: 'search')
     const searchInput = document.getElementById('search');
 
     if (searchInput) {
-        // Usa o evento 'input' para filtrar em tempo real conforme o usuário digita
         searchInput.addEventListener('input', (event) => {
             filtrarProdutos(event.target.value);
         });
@@ -26,7 +22,6 @@ function buscarProdutos() {
             return response.json();
         })
         .then(data => {
-            // 2. SALVA a lista completa de produtos na variável global
             todosProdutos = data;
             exibirProdutos(todosProdutos);
         })
@@ -36,18 +31,15 @@ function buscarProdutos() {
         });
 }
 
-// --- NOVA FUNÇÃO DE FILTRO ---
 function filtrarProdutos(termo) {
     const termoBusca = termo.toLowerCase().trim();
 
     if (termoBusca === '') {
-        // Se o campo estiver vazio, exibe todos os produtos
         exibirProdutos(todosProdutos);
         return;
     }
 
     const produtosFiltrados = todosProdutos.filter(produto => {
-        // Filtra pelo nome do produto, ignorando maiúsculas/minúsculas
         return produto.nome.toLowerCase().includes(termoBusca);
     });
 
@@ -68,8 +60,6 @@ function exibirProdutos(produtos) {
     produtos.forEach(produto => {
         const card = document.createElement('div');
         card.className = 'product-card';
-
-        // Correção do TypeError: garante que produto.preco seja um número antes de usar toFixed(2)
         const precoNumerico = Number(produto.preco) || 0; 
         const precoFormatado = precoNumerico.toFixed(2).replace('.', ',');
         
@@ -90,27 +80,24 @@ function exibirProdutos(produtos) {
 function exibirSugestoes(termo) {
     const suggestionsContainer = document.getElementById('suggestions-container');
     const termoBusca = termo.toLowerCase().trim();
-    suggestionsContainer.innerHTML = ''; // Limpa as sugestões anteriores
+    suggestionsContainer.innerHTML = ''; 
 
     if (termoBusca.length === 0) {
-        return; // Não mostra nada se o campo estiver vazio
+        return; 
     }
-
-    // Filtra no máximo 5 sugestões
     const sugestoes = todosProdutos
         .filter(produto => produto.nome.toLowerCase().includes(termoBusca))
-        .slice(0, 5); // Limita a 5 resultados
+        .slice(0, 5); 
 
     sugestoes.forEach(produto => {
         const suggestionItem = document.createElement('div');
         suggestionItem.classList.add('suggestion-item');
         suggestionItem.textContent = produto.nome;
         
-        // Clica na sugestão e preenche o input (acionando a busca)
         suggestionItem.addEventListener('click', () => {
             document.getElementById('search').value = produto.nome;
             filtrarProdutos(produto.nome);
-            suggestionsContainer.innerHTML = ''; // Esconde a lista após a seleção
+            suggestionsContainer.innerHTML = ''; 
         });
 
         suggestionsContainer.appendChild(suggestionItem);
