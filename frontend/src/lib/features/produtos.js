@@ -45,8 +45,6 @@ function filtrarProdutos(termo) {
 
     exibirProdutos(produtosFiltrados);
 }
-// -----------------------------
-
 
 function exibirProdutos(produtos) {
     const container = document.getElementById('product-container');
