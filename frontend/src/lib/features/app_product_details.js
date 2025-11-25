@@ -73,8 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch("http://127.0.0.1:8000/api/cart/add/", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRFToken": getCookie("csrftoken")
+                        "Content-Type": "application/json"  
                     },
                     body: JSON.stringify({
                         product_id: productId,
@@ -99,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return alert("Selecione cor e tamanho!");
                 }
                 addToCartAPI(produto.id);
-                window.location.href = "/carrinho"; // ajuste como desejar
+                window.location.href = "/carrinho"; 
             });
         })
         .catch(err => console.error(err));
