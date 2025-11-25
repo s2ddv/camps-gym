@@ -1,6 +1,5 @@
 body {
 margin: 0;
-font-family: Arial, Helvetica, sans-serif;
 background-color: #111;
 color: #fff;
 }
@@ -25,22 +24,23 @@ display: block;
 
 .sobre-nos-texto {
 position: absolute;
-top: 240px;
+top: 130px;
 left: 200px;
 }
 
+.subtitle-aboutus{
+  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+  font-weight: lighter;
+}
+
 .sobre-nos-texto h1 {
-font-size: 80px;
+font-size: 120px;
 margin: 0;
 font-weight: bold;
 font-family: "Anton", sans-serif;
 font-weight: 100;
 }
-
-.sobre-nos-texto p {
-font-size: 18px;
-}
-
 
 .molduras {
   display: flex;
@@ -78,30 +78,50 @@ font-size: 18px;
 }
 
 .nossa-historia {
-display: flex;
-gap: 40px;
+display: grid;
+grid-template-columns: 1fr;
 padding: 40px;
 margin-bottom: 36px;
+margin-top: 30px;
+gap: 30px;
 }
 
-.nossa-historia img {
-width: 35%;
-border: 5px solid #f9c300;
+.container-image-time{
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 60px;
+}
+
+.image-gym{
+  border: #F6AE01 6px solid;
+}
+
+.image-gym img {
+  width: 600px;
+  object-fit: cover;
+}
+
+.nossa-historia-texto{
+  grid-column: 2;
 }
 
 .nossa-historia-texto h2 {
 font-size: 50px;
-margin-top: 20px;
 font-family: "Anton", sans-serif;
 color: #f9c300; 
-font-weight: 100;
+font-weight: normal;
 }
 
 .nossa-historia-texto h3 {
-font-size: 18px;
-color: white; 
+margin-top: 30px ;
+font-size: 25px;
+color: white;
 margin-bottom: 15px;
 margin-left: 42px;
+font-family: "Oswald", sans-serif;
+text-align: justify;
 }
 
 .nossa-historia-texto p {
