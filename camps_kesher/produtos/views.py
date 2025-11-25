@@ -1,38 +1,44 @@
 import json
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics
 from .models import Categoria, Tamanho, Produto, ProdutoVariacao
 from .serializers import CategoriaSerializer, ProdutoSerializer
 
+
 def get_cart(request):
-    """Retorna o carrinho da sessão ou cria um novo"""
     return request.session.get('cart', [])
 
+
 def save_cart(request, cart):
-    """Salva o carrinho atualizado na sessão"""
     request.session['cart'] = cart
     request.session.modified = True
+
 
 class CategoriaList(generics.ListCreateAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
 
+
 class CategoriaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+
 
 class ProdutoListCreate(generics.ListCreateAPIView):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
 
+
 class ProdutoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
 
+@csrf_exempt
 def add_to_cart(request):
     if request.method == "POST":
-        
+
         data = json.loads(request.body)
         produto_id = data.get("product_id")
         cor = data.get("color")
@@ -49,7 +55,10 @@ def add_to_cart(request):
 
         cart = get_cart(request)
 
-        item_existente = next((item for item in cart if item['variacao_id'] == variacao.id), None)
+        item_existente = next(
+            (item for item in cart if item['variacao_id'] == variacao.id),
+            None
+        )
 
         if item_existente:
             item_existente['quantidade'] += 1
@@ -69,10 +78,13 @@ def add_to_cart(request):
 
     return JsonResponse({"error": "Método inválido"}, status=405)
 
+@csrf_exempt
 def view_cart(request):
     cart = get_cart(request)
     return JsonResponse({"cart": cart}, status=200)
 
+
+@csrf_exempt
 def update_cart_item(request):
     if request.method == "POST":
         data = json.loads(request.body)
@@ -92,6 +104,8 @@ def update_cart_item(request):
 
     return JsonResponse({"error": "Método inválido"}, status=405)
 
+
+@csrf_exempt
 def delete_cart_item(request):
     if request.method == "POST":
         data = json.loads(request.body)
@@ -106,19 +120,24 @@ def delete_cart_item(request):
 
     return JsonResponse({"error": "Método inválido"}, status=405)
 
+
+@csrf_exempt
 def clear_cart(request):
     request.session["cart"] = []
     return JsonResponse({"message": "Carrinho limpo"})
 
+
+@csrf_exempt
 def remove_from_cart(request):
     if request.method == "POST":
         data = json.loads(request.body)
         variacao_id = data.get("variacao_id")
 
         cart = request.session.get("cart", [])
-
         cart = [i for i in cart if i["variacao_id"] != variacao_id]
 
         request.session["cart"] = cart
+
         return JsonResponse({"message": "Item removido"})
+
     return JsonResponse({"error": "Método inválido"}, status=405)

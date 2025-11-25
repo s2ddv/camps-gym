@@ -105,7 +105,7 @@ function atualizarQuantidade(input) {
     if (novaQuantidade > 0) {
       carrinho[index].quantidade = novaQuantidade;
       localStorage.setItem('carrinho', JSON.stringify(carrinho));
-      exibirtItensCarrinho(); // se você tiver essa função
+      exibirtItensCarrinho(); 
     } else {
       removerItem(index);
     }
