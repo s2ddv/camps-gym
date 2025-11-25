@@ -1,7 +1,7 @@
 body {
   background-color: #0f0f08;
   font-family: "Arial Black", sans-serif;
-  color: #ffb800;
+  color: #F6AE01;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -53,15 +53,15 @@ border: none;
 }
 
 .titulo-semestral {
-    color: #ffb800;
+    color: #F6AE01;
 }
 
 .titulo-anual {
-  color: #ffb800;
+  color: #F6AE01;
 }
 
 .destaque {
-    background-color: #ffb800;
+    background-color: #F6AE01;
     color: #000;
     height: 420px; 
     transform: translateY(-40px); 
@@ -124,7 +124,7 @@ border: none;
 }
 
 button {
-  background-color: #ffb800;
+  background-color: #F6AE01;
   color: #000;
   border: none;
   padding: 0.6rem 1.4rem;
@@ -137,13 +137,13 @@ button {
 }
 
 button:hover {
-  background-color: #ffcf40;
+  background-color: #F6AE01;
   transform: scale(1.05);
 }
 
 .destaque button {
   background-color: #000;
-  color: #ffb800;
+  color: #F6AE01;
 }
 
 .destaque button:hover {
@@ -152,6 +152,6 @@ button:hover {
 
 .info-final {
   font-size: 0.9rem;
-  color: #ffb800;
+  color: #F6AE01;
   margin-bottom: 4rem;
 }
