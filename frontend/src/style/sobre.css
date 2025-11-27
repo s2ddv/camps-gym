@@ -52,7 +52,7 @@ font-size: 18px;
 .moldura {
   width: 300px;
   height: 250px;
-  border: 3px solid #f9c300;
+  border: 3px solid ;
   background-color: transparent;
   position: relative; 
   overflow: hidden;
@@ -86,14 +86,14 @@ margin-bottom: 36px;
 
 .nossa-historia img {
 width: 35%;
-border: 5px solid #f9c300;
+border: 5px solid #F6AE01;
 }
 
 .nossa-historia-texto h2 {
 font-size: 50px;
 margin-top: 20px;
 font-family: "Anton", sans-serif;
-color: #f9c300; 
+color: #F6AE01; 
 font-weight: 100;
 }
 

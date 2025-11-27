@@ -1,4 +1,4 @@
-const numeroWhatsApp = "5599999999999"; 
+const numeroWhatsApp = "15996744027"; 
 
 const botoesEscolher = document.querySelectorAll(".plano-card button");
 

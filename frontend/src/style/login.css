@@ -34,7 +34,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ffbf00; 
+    background: #F6AE01; 
     position: relative;
     overflow: hidden;
 }
@@ -82,7 +82,7 @@ input {
 a {
     font-size: 0.8rem;
     text-align: right;
-    color: #f6ae01;
+    color: #F6AE01;
     transition: color 0.4s ease-in-out;
 }
 
@@ -106,7 +106,7 @@ a:hover {
 }
 
 .log-in-btn:hover {
-    background-color: #f6ae01;
+    background-color: #F6AE01;
     color: #fff;
 }
 
@@ -186,7 +186,7 @@ a:hover {
 }
 
 .apple-btn:hover { 
-    color: #f6ae01;
+    color: #F6AE01;
 }
 
 .google-btn {
@@ -194,7 +194,7 @@ a:hover {
 }
 
 .google-btn:hover { 
-    color: #f6ae01;
+    color: #F6AE01;
 }
 
 .register {
@@ -204,7 +204,7 @@ a:hover {
 }
 
 .register a {
-    color: #f6ae01;
+    color: #F6AE01;
 } 
 
 .register a:hover {
@@ -218,6 +218,6 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #f6ae01;
+    border-color: #F6AE01;
     box-shadow: 0 0 0 3px rgba(217, 142, 0, 0.5);
 }
