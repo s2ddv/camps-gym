@@ -1,111 +1,89 @@
-body {
-margin: 0;
-font-family: Arial, Helvetica, sans-serif;
-background-color: #111;
-color: #fff;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
 .sobre-nos {
-position: relative;
-text-align: left;
-margin-top: -40px;
+    width: 100%;
+    text-align: center;
+    margin-top: -40px;
+    background: #000;
 }
 
 .sobre-nos img {
-width: 100%;
-height: 600px;
-object-fit: cover;
-display: block; 
+    width: 100%;       /* ocupa toda a largura */
+    height: auto;      /* mantém proporção original */
+    display: block;    /* evita espaçamentos extras */
+    object-fit: contain; /* garante que não corta */
 }
 
-.sobre-nos-texto {
-position: absolute;
-top: 240px;
-left: 200px;
+.sobre-nos {
+    width: 100%;
+    background: #000;
 }
 
-.sobre-nos-texto h1 {
-font-size: 80px;
-margin: 0;
-font-weight: bold;
-font-family: "Anton", sans-serif;
-font-weight: 100;
-}
-
-.sobre-nos-texto p {
-font-size: 18px;
+.sobre-nos img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 70px;
 }
 
 
-.molduras {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  margin: 40px 0;
+/* SEÇÃO DOS 3 CARDS */
+.cards-info {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 70px 25px;
+    background: #000; /* Fundo escuro igual ao site */
+    margin-bottom: 30px;
 }
 
-.moldura {
-  width: 300px;
-  height: 250px;
-  border: 3px solid ;
-  background-color: transparent;
-  position: relative; 
-  overflow: hidden;
+/* ESTILO DOS CARDS AMARELOS */
+.card {
+    background: #F6AE01;    /* Amarelo */
+    padding: 65px 20px;
+    border-radius: 20px;    /* Bordas arredondadas */
+    width: 250px;           /* Largura igual à do modelo */
+    text-align: center;
+    color: #000;
+    font-family: sans-serif;
+    margin-bottom: 30px;
 }
 
-.moldura img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* TÍTULO MAIOR */
+.card h2 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: black;
+    font-family: "Anton", sans-serif;
+    letter-spacing: 2px;
 }
 
-.nome {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  color: #fff;
-  font-size: 14px;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: "Anton", sans-serif;
-  font-weight: 100;
+/* TEXTO MENOR */
+.card p {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Anton", sans-serif;
+    font-weight: 100;
 }
 
-.nossa-historia {
-display: flex;
-gap: 40px;
-padding: 40px;
-margin-bottom: 36px;
+.nossa-equipe {
+    width: 100%;
+    text-align: center;
+    margin-top: -40px;
 }
 
-.nossa-historia img {
-width: 35%;
-border: 5px solid #F6AE01;
+.nossa-equipe img {
+    width: 100%;       /* ocupa toda a largura */
+    height: auto;      /* mantém proporção original */
+    display: block;    /* evita espaçamentos extras */
+    object-fit: contain; /* garante que não corta */
 }
 
-.nossa-historia-texto h2 {
-font-size: 50px;
-margin-top: 20px;
-font-family: "Anton", sans-serif;
-color: #F6AE01; 
-font-weight: 100;
+.nossa-equipe {
+    width: 100%;
 }
 
-.nossa-historia-texto h3 {
-font-size: 18px;
-color: white; 
-margin-bottom: 15px;
-margin-left: 42px;
-}
-
-.nossa-historia-texto p {
-font-size: 16px;
-line-height: 1.5;
-margin-top: 30px;
+.nossa-equipe img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
