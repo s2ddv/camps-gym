@@ -43,16 +43,21 @@ a {
 }
 
 .img-grid { 
-    display: grid;
+    display: flex;
+    box-shadow: 0 2px 5px gainsboro;
+    margin: 10px 50px 100px 50px;
+    border-radius: 16px;
     align-items: center;
     justify-content: center;
+    height: 95.5%;
 }
 
 .main-img { 
     display: grid;
     box-shadow: 0 2px 5px gainsboro;
     border-radius: 16px;
-    margin: 10px 50px 20px 50px;
+    margin: 10px 50px 60px 50px;
+    
 }
 
 .main-thumb-grid { 
@@ -80,6 +85,7 @@ a {
     flex-direction: row;
     gap: 1rem;
     align-items: center;
+    align-self: center;
 }
 
 .thumb-img img { 
@@ -100,7 +106,7 @@ a {
 }
 
 h3, p { 
-    padding: 10px 30px;
+    padding: 8px 20px;
 }
 
 p { 
@@ -123,8 +129,9 @@ h3 {
     color: #fff;
     border: none;
     outline: none;
-    width: 48rem;
+    width: 50rem;
     height: 3rem;
+    align-self: center;
     cursor: pointer;
 }
 
@@ -134,7 +141,8 @@ h3 {
     background-color: #fff;
     color: #252525;
     outline: none;
-    width: 48rem;
+    width: 50rem;
+    align-self: center;
     height: 3rem;
     cursor: pointer;
 }
@@ -166,32 +174,44 @@ h3 {
     border-radius: 10px;
 }
 
-.change-color-btn1,
-.change-color-btn2,
-.change-color-btn3 { 
-    cursor: pointer;
-    border: none;
+.change-color1,
+.change-color2,
+.change-color3 { 
+    background-color: #fff;
     border-radius: 8px;
 }
 
-.change-color-btn1 { 
-    background-color: #000000;
-}
-
-.change-color-btn2 { 
-    background-color: #084808;
-}
-
-.change-color-btn3 { 
-    background-color: #6c3c0c;
-}
-
-.change-size-btn1,
-.change-size-btn2,
-.change-size-btn3 { 
-    cursor: pointer;
-    border: none;
+.change-size1,
+.change-size2,
+.change-size3 { 
+    background-color: #fff;
     border-radius: 8px;
+}
+
+.change-color1:hover,
+.change-color2:hover,
+.change-color3:hover { 
+    cursor: pointer;
+}
+
+.change-size1:hover,
+.change-size2:hover,
+.change-size3:hover { 
+    cursor: pointer;
+}
+
+.change-color1.selected,
+.change-color2.selected,
+.change-color3.selected { 
+    background-color: #252525;
+    color: #fff;
+}
+
+.change-size1.selected,
+.change-size2.selected,
+.change-size3.selected { 
+    background-color: #252525;
+    color: #fff;
 }
 
 .change-size { 
@@ -202,11 +222,5 @@ h3 {
     height: 60px;
     border-radius: 8px;
     transition: all 0.4s;
-}
-
-.change-size-btn1,
-.change-size-btn2,
-.change-size-btn3 .selected { 
-    border-color: #000000;
-
+    background-color: #fff;
 }
