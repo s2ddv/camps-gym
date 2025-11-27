@@ -20,16 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             <p>Color:</p>
                             <div class="change-color">
-                                <button data-color="Preta">Preta</button>
-                                <button data-color="Branca">Branca</button>
-                                <button data-color="Azul">Azul</button>
+                                <button class="change-color1" data-color="Preta">Preta</button>
+                                <button class="change-color2" data-color="Branca">Branca</button>
+                                <button class="change-color3" data-color="Azul">Azul</button>
                             </div>
 
                             <p>Size:</p>
                             <div class="change-size">
-                                <button data-size="P">P</button>
-                                <button data-size="M">M</button>
-                                <button data-size="G">G</button>
+                                <button class="change-size1" data-size="P">P</button>
+                                <button class="change-size2" data-size="M">M</button>
+                                <button class="change-size3" data-size="G">G</button>
                             </div>
 
                             <button id="cartBtn" data-product-id="${produto.id}" class="cart-btn">ADD TO CART</button>

@@ -63,7 +63,7 @@ function exibirProdutos(produtos) {
         
         card.innerHTML = `
             <div class="card">
-                <a href="/frontend/src/pages/">
+                <a href="/frontend/src/pages/produto_detalhes.html?id=${produto.id}">
                     <img src="${produto.imagem}" alt="Foto de ${produto.nome}" class="product-image">
                     <h3>${produto.nome}</h3>
                     <p class="price">R$ ${precoFormatado}</p>

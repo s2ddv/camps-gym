@@ -1,11 +1,15 @@
 import json
-from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics
-from .models import Categoria, Tamanho, Produto, ProdutoVariacao
-from .serializers import CategoriaSerializer, ProdutoSerializer
 
+from .models import Categoria, Tamanho, Produto, ProdutoVariacao
+from .serializers import (
+    CategoriaSerializer,
+    ProdutoSerializer,
+    TamanhoSerializer,
+    ProdutoVariacaoSerializer
+)
 
 def get_cart(request):
     return request.session.get('cart', [])
@@ -14,7 +18,6 @@ def get_cart(request):
 def save_cart(request, cart):
     request.session['cart'] = cart
     request.session.modified = True
-
 
 class CategoriaList(generics.ListCreateAPIView):
     queryset = Categoria.objects.all()
@@ -25,7 +28,6 @@ class CategoriaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
 
-
 class ProdutoListCreate(generics.ListCreateAPIView):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
@@ -35,109 +37,132 @@ class ProdutoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
 
+class TamanhoListCreate(generics.ListCreateAPIView):
+    queryset = Tamanho.objects.all()
+    serializer_class = TamanhoSerializer
+
+
+class TamanhoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Tamanho.objects.all()
+    serializer_class = TamanhoSerializer
+
+class ProdutoVariacaoListCreate(generics.ListCreateAPIView):
+    queryset = ProdutoVariacao.objects.all()
+    serializer_class = ProdutoVariacaoSerializer
+
+
+class ProdutoVariacaoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ProdutoVariacao.objects.all()
+    serializer_class = ProdutoVariacaoSerializer
+
 @csrf_exempt
 def add_to_cart(request):
-    if request.method == "POST":
+    if request.method != "POST":
+        return JsonResponse({"error": "Método inválido"}, status=405)
 
-        data = json.loads(request.body)
-        produto_id = data.get("product_id")
-        cor = data.get("color")
-        tamanho = data.get("size")
+    data = json.loads(request.body)
+    produto_id = data.get("product_id")
+    cor = data.get("color")
+    tamanho = data.get("size")
 
-        try:
-            variacao = ProdutoVariacao.objects.get(
-                produto_id=produto_id,
-                cor=cor,
-                tamanho__nome=tamanho
-            )
-        except ProdutoVariacao.DoesNotExist:
-            return JsonResponse({"error": "Variação não encontrada"}, status=404)
-
-        cart = get_cart(request)
-
-        item_existente = next(
-            (item for item in cart if item['variacao_id'] == variacao.id),
-            None
+    try:
+        variacao = ProdutoVariacao.objects.get(
+            produto_id=produto_id,
+            cor=cor,
+            tamanho__nome=tamanho
         )
+    except ProdutoVariacao.DoesNotExist:
+        return JsonResponse({"error": "Variação não encontrada"}, status=404)
 
-        if item_existente:
-            item_existente['quantidade'] += 1
-        else:
-            cart.append({
-                "variacao_id": variacao.id,
-                "produto": variacao.produto.nome,
-                "tamanho": variacao.tamanho.nome,
-                "cor": variacao.cor,
-                "preco": str(variacao.produto.preco),
-                "quantidade": 1
-            })
+    cart = get_cart(request)
 
-        save_cart(request, cart)
+    item_existente = next(
+        (item for item in cart if item['variacao_id'] == variacao.id),
+        None
+    )
 
-        return JsonResponse({"message": f"{variacao} adicionado ao carrinho!"}, status=200)
+    if item_existente:
+        item_existente['quantidade'] += 1
+    else:
+        cart.append({
+            "variacao_id": variacao.id,
+            "produto": variacao.produto.nome,
+            "tamanho": variacao.tamanho.nome,
+            "cor": variacao.cor,
+            "preco": str(variacao.produto.preco),
+            "quantidade": 1
+        })
 
-    return JsonResponse({"error": "Método inválido"}, status=405)
+    save_cart(request, cart)
+
+    return JsonResponse(
+        {"message": f"{variacao.produto.nome} adicionado ao carrinho!"},
+        status=200
+    )
+
 
 @csrf_exempt
 def view_cart(request):
-    cart = get_cart(request)
-    return JsonResponse({"cart": cart}, status=200)
+    return JsonResponse({"cart": get_cart(request)}, status=200)
 
 
 @csrf_exempt
 def update_cart_item(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        variacao_id = data.get("variacao_id")
-        quantidade = data.get("quantidade")
+    if request.method != "POST":
+        return JsonResponse({"error": "Método inválido"}, status=405)
 
-        cart = get_cart(request)
+    data = json.loads(request.body)
+    variacao_id = data.get("variacao_id")
+    quantidade = int(data.get("quantidade", 1))
 
-        for item in cart:
-            if item["variacao_id"] == variacao_id:
-                item["quantidade"] = quantidade
-                break
+    cart = get_cart(request)
 
-        save_cart(request, cart)
+    for item in cart:
+        if item["variacao_id"] == variacao_id:
+            item["quantidade"] = quantidade
+            break
 
-        return JsonResponse({"message": "Item atualizado!"}, status=200)
+    save_cart(request, cart)
 
-    return JsonResponse({"error": "Método inválido"}, status=405)
+    return JsonResponse({"message": "Item atualizado!"}, status=200)
 
 
 @csrf_exempt
 def delete_cart_item(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        variacao_id = data.get("variacao_id")
+    if request.method != "POST":
+        return JsonResponse({"error": "Método inválido"}, status=405)
 
-        cart = get_cart(request)
-        cart = [item for item in cart if item["variacao_id"] != variacao_id]
+    data = json.loads(request.body)
+    variacao_id = data.get("variacao_id")
 
-        save_cart(request, cart)
+    cart = get_cart(request)
+    cart = [item for item in cart if item["variacao_id"] != variacao_id]
 
-        return JsonResponse({"message": "Item removido!"}, status=200)
+    save_cart(request, cart)
 
-    return JsonResponse({"error": "Método inválido"}, status=405)
+    return JsonResponse({"message": "Item removido!"}, status=200)
 
 
 @csrf_exempt
 def clear_cart(request):
     request.session["cart"] = []
-    return JsonResponse({"message": "Carrinho limpo"})
-
+    return JsonResponse({"message": "Carrinho limpo!"}, status=200)
 
 @csrf_exempt
 def remove_from_cart(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        variacao_id = data.get("variacao_id")
+    if request.method != "POST":
+        return JsonResponse({"error": "Método inválido"}, status=405)
 
-        cart = request.session.get("cart", [])
-        cart = [i for i in cart if i["variacao_id"] != variacao_id]
+    data = json.loads(request.body)
+    variacao_id = data.get("variacao_id")
 
-        request.session["cart"] = cart
+    if not variacao_id:
+        return JsonResponse({"error": "variacao_id é obrigatório"}, status=400)
 
-        return JsonResponse({"message": "Item removido"})
+    cart = get_cart(request)
 
-    return JsonResponse({"error": "Método inválido"}, status=405)
+    cart = [item for item in cart if item["variacao_id"] != variacao_id]
+
+    save_cart(request, cart)
+
+    return JsonResponse({"message": "Item removido do carrinho com sucesso!"}, status=200)
