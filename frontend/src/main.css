@@ -119,32 +119,44 @@ h1 {
 
 .container-footer{
     display: flex;
-    height: 30vh;
+    align-items: center;
+    gap: 100px;
+    height: 140vh;
     background-color: #F6AE01;
     position: sticky;
     bottom: 0;
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+.container-footer img{
+    margin-top: -100px;
 }
 
 h2{
     font-family: "Inclusive Sans", sans-serif;
     color: #FFFFFF;
     text-align: center;
+    font-size: 30px;
 }
 
 .footer-left{
+    grid-column: 1;
     margin-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: right;
 }
 
 .footer-buttons{
     display: flex;
-    justify-content: space-around;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 70px;
 }
 
 .footer-right{
+    grid-column: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -154,4 +166,141 @@ h2{
 
 .btn-index{
     text-decoration: none;
+}
+
+hr{
+    border: none;
+    background-color: #FFFFFF;
+    height: 2px;
+    width: 30%;
+    margin-top: -60px;
+}
+
+h6{
+    color: #FFFFFF;
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    margin-top: -60px;
+}
+
+.linha-socials{
+    margin-top: -60px;
+}
+
+.title-camps{
+    color: #FFFFFF;
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.linha-vertical {
+  height: 400px;
+  border-left: 2px solid #FFFFFF;
+  display: flex;
+}
+
+.container-units{
+    display: flex;
+    height: 400px;
+}
+
+.unity-one{
+    grid-column: 1;
+    width: 850px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+}
+
+.unity-two{
+    grid-column: 2;
+    width: 850px;
+    height: 100%;
+    margin-left: 80px;
+}
+
+.name-units{
+    color: #FFFFFF;
+    font-family: "Anton", sans-serif;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+}
+
+.box-img-gym{
+    display: flex;
+    align-items: center;
+    height: 470px;
+}
+
+.box-img-gym img{
+    border: #FFFFFF 6px solid;
+    border-radius: 20px;
+}
+
+.text-local{
+    color: #FFFFFF;
+}
+
+.container-img-local{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.box-text{
+    margin-top: -100px;
+    font-size: 30px;
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+}
+
+.spacement-kesher{
+    margin-top: -10px;
+}
+
+.container-kesher-github{
+    display: grid;
+    height: 400px;
+    width: 1200px;
+    grid-template-columns: 1fr;
+}
+
+.kesher-informations{
+    grid-column: 1;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-top: -100px;
+}
+
+.github-contact{
+    grid-column: 2;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+}
+
+.github-contact .item{
+    display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding-left: 40px;
+}
+
+h4{
+    font-family: "Inclusive Sans", sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
 }
