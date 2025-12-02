@@ -14,7 +14,7 @@ body{
     flex-direction: column;
 }
 
-h4{
+.title-register-camps{
     font-family: "Anton", sans-serif;
     font-size: 300px;
     color: #FFFFFF;
@@ -73,7 +73,7 @@ h5{
     line-height: 4rem;
 }
 
-hr{
+.linha-action{
     border: none;
     height: 5px;
     width: 50px;
@@ -81,7 +81,7 @@ hr{
     margin: 0; 
 }
 
-h6{
+.action{
     font-family: "Oswald", sans-serif;
     font-size: 30px;
     color: #F6AE01;
