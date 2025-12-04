@@ -67,6 +67,10 @@ h5{
     border: #F6AE01 10px solid;
 }
 
+.image-gym img{
+    object-fit: cover;
+}
+
 .container-informations-time{
     align-items: center;
     margin-top: 130px;
