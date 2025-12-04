@@ -90,7 +90,7 @@ a:hover {
     color: #999;
 }
 
-.log-in-btn {
+.register-btn {
     flex: 1;
     padding: 10px;
     border-radius: 10px;
@@ -101,11 +101,11 @@ a:hover {
     z-index: 1;
 }
 
-.log-in-btn {
+.register-btn {
     transition: background-color 0.4s ease;
 }
 
-.log-in-btn:hover {
+.register-btn:hover {
     background-color: #F6AE01;
     color: #fff;
 }
