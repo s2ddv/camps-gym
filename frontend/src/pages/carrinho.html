@@ -68,16 +68,16 @@
                 <div id="card-items-container">
                     <img src="/frontend/src/assets/garrafa-produto-details(2).png" style="width: 200px; height: 250px;">
                     <div class="container-informations-item">
-                        <h5>GARRAFA CAMPS</h5>
-                        <h6>EDIÇÃO PADRÃO</h6>
+                        <p class="name-product">GARRAFA CAMPS</p>
+                        <p class="edition">EDIÇÃO PADRÃO</p>
                         <div class="container-color">
-                            <h4>COLOR:</h4>
+                            <p class="color">COR:</p>
                             <div class="box-color"></div>
                         </div>
                     </div>
                     <div class="container-quantity">
-                        <h5>QUANTIDADE</h5>
-                        <button class="btn-less-quantity"><hr></button>
+                        <p class="quantity">QUANTIDADE</p>
+                        <button class="btn-less-quantity"><hr class="less-quantity"></button>
                         <div class="container-quantity-number">1</div>
                         <button class="btn-more-quantity">+</button>
                     </div>
@@ -129,26 +129,72 @@
 
 <footer>
         <div class="container-footer">
-            <div class="footer-left">
-                <h2>Av. Izabel Ferreira Coelho,</h2>
-                <h2>106 - Jardim Ana Claudia,</h2>
-                <h2>Votorantim - SP, 18112-390.</h2>
-                <br>
-                <h2>Número de contato:</h2>
-                <h2>(15) 99674-4027</h2>
-                <br>
+            <p class="title-camps">CAMPS ACADEMIA</p>
+            <hr>
+            <div class="camps-socials">
+                <h6>Siga a CAMPS nas redes sociais</h6>
                 <div class="footer-buttons">
                     <a href="https://totalpass.com/br/academias/camps-academia/"><img src="/frontend/src/assets/icon-tp.png" style="width: 55px;"></a>
-                    <a href="https://www.instagram.com/camps_academia/"><img src="/frontend/src/assets/icon-instagram.png" style="width: 55px;"></a>
-                    <a href="https://www.facebook.com/campsacademia/?locale=pt_BR"><img src="/frontend/src/assets/icon-facebook.png" style="width: 55px;"></a>
-                
+                    <a href="https://www.instagram.com/camps_academia/"><img src="/frontend/src/assets/instagram-icon.png" style="width: 55px;"></a>
+                    <a href="https://www.facebook.com/campsacademia/?locale=pt_BR"><img src="/frontend/src/assets/facebook-icon.png" style="width: 55px;"></a>
                 </div>
             </div>
-            <div class="footer-right">
-                <h2>© 2025 por Camps Gym. Criado e <br>protegido por Kesher</h2>
-                <img src="/frontend/src/assets/logo-kesher-Photoroom.png" style="width: 190px;">
+            <hr class="linha-socials">
+            
+            <div class="container-kesher-github">
+                <div class="kesher-informations">
+                    <img src="/frontend/src/assets/logo-kesher-Photoroom.png" style="width: 300px;">
+                    <h2 class="informations-kesher">© 2025 por Camps Academia. Criado e protegido por Kesher</h2>
+                </div>
+                <div class="github-contact">
+                    <div class="personal-github">
+                        <a href="https://github.com/elocmachado" class="item">
+                            <img src="../assets/github-icon.png" width="50px">
+                        </a>
+                        <a href="https://github.com/elocmachado" class="item">
+                            <h4>Eloisa Cau</h4>
+                        </a>
+                    </div>
+                    <div class="personal-github">
+                        <a href="http://github.com/AnaBiah1" class="item">
+                            <img src="../assets/github-icon.png" width="50px">
+                        </a>
+                        <a href="http://github.com/AnaBiah1" class="item">
+                            <h4>Ana Beatriz</h4>
+                        </a>
+                    </div>
+                    <div class="personal-github">
+                        <a href="https://github.com/jheaguirra" class="item">
+                            <img src="../assets/github-icon.png" width="50px">
+                        </a>
+                        <a href="https://github.com/jheaguirra" class="item">
+                            <h4>Jhenifer Aguirra</h4>
+                        </a>
+                    </div>
+                    <div class="personal-github">
+                        <a href="https://github.com/s2ddv" class="item">
+                            <img src="../assets/github-icon.png" width="50px">
+                        </a>
+                        <a href="https://github.com/s2ddv" class="item">
+                            <h4>Samuel Barbosa</h4>
+                        </a>
+                    </div>
+                    <div class="personal-github">
+                        <a href="https://github.com/Clxt0Tm" class="item">
+                            <img src="../assets/github-icon.png" width="50px">
+                        </a>
+                        <a href="https://github.com/Clxt0Tm" class="item">
+                            <h4>Guilherme Barbi</h4>
+                        </a>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </footer>
     <script src="/frontend/src/lib/features/menu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script> 
+    <script src="/frontend/src/lib/features/lenis.js"></script>
 </html>
