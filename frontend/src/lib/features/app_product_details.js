@@ -73,17 +73,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch("http://127.0.0.1:8000/api/produtos/cart/add/", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"  
+                        "Content-Type": "application/json"
                     },
+                    credentials: "include",
                     body: JSON.stringify({
                         product_id: productId,
                         color: selectedColor,
                         size: selectedSize
                     })
                 })
-                .then(res => res.json())
-                .then(data => alert(data.message || data.error))
-                .catch(err => console.error(err));
+                .then(async res => {
+                    let data;
+                    try {
+                        data = await res.json();
+                    } catch (e) {
+                        data = { error: 'Resposta inválida do servidor.' };
+                    }
+                    if (!res.ok) {
+                        alert(`Erro ao adicionar ao carrinho: ${data.error || res.status}`);
+                    } else if (data.error) {
+                        alert(`Erro: ${data.error}`);
+                    } else {
+                        alert(data.message || 'Produto adicionado ao carrinho!');
+                    }
+                })
+                .catch(err => {
+                    alert('Erro de conexão: ' + err);
+                    console.error(err);
+                });
             }
 
             document.getElementById("cartBtn").addEventListener("click", () => {

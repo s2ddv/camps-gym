@@ -95,6 +95,7 @@ def add_to_cart(request):
         cart.append({
             "variacao_id": variacao.id,
             "produto": variacao.produto.nome,
+            "imagem": variacao.produto.imagem.url if variacao.produto.imagem else "",
             "tamanho": variacao.tamanho.nome,
             "cor": variacao.cor,
             "preco": str(variacao.produto.preco),

@@ -14,7 +14,7 @@ window.onload = function() {
 };
 
 function buscarProdutos() {
-    fetch('http://127.0.0.1:8000/api/produtos/')
+    fetch('http://127.0.0.1:8000/api/produtos/produtos')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro na rede ou resposta não OK');
