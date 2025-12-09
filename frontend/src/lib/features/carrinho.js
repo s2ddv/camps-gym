@@ -50,18 +50,28 @@ async function exibirItensCarrinho() {
     const itensApi = await pegarProdutosCarrinhoDaAPI();
     let carrinho = [];
     if (itensApi.length > 0) {
-        carrinho = itensApi.map(item => ({
-            id: item.variacao_id ?? null,
-            nome: item.produto ?? item.nome ?? item.title ?? 'Produto',
-            imagem: item.imagem ?? item.image ?? '',
-            cor: item.cor ?? item.color ?? '',
-            preco: typeof item.preco === 'number' ? item.preco : parseFloat(item.preco) || 0,
-            quantidade: typeof item.quantidade === 'number' ? item.quantidade : parseInt(item.quantidade) || 1,
-            tamanho: item.tamanho ?? '',
-            descricao: item.descricao ?? ''
-        }));
+        carrinho = itensApi.map(item => {
+            // Corrige imagem para URL absoluta se necessário
+            let imagemUrl = item.imagem || '';
+            if (imagemUrl && imagemUrl.startsWith('/')) {
+                imagemUrl = 'http://127.0.0.1:8000' + imagemUrl;
+            }
+            // Preço pode vir como string
+            let precoNum = typeof item.preco === 'number' ? item.preco : parseFloat(item.preco) || 0;
+            return {
+                id: item.variacao_id ?? null,
+                nome: item.produto ?? item.nome ?? item.title ?? 'Produto',
+                imagem: imagemUrl,
+                cor: item.cor ?? item.color ?? '',
+                preco: precoNum,
+                quantidade: typeof item.quantidade === 'number' ? item.quantidade : parseInt(item.quantidade) || 1,
+                tamanho: item.tamanho ?? '',
+                descricao: item.descricao ?? ''
+            };
+        });
     }
 
+    console.log('Carrinho carregado:', carrinho); // Para depuração
     container.innerHTML = '';
 
     if (carrinho.length === 0) {
