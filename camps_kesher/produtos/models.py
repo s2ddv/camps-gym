@@ -26,8 +26,12 @@ class Produto(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name="produtos")
     preco = models.DecimalField(max_digits=8, decimal_places=2)
     imagem = models.ImageField(upload_to="produtos/", null=True, blank=True)
+<<<<<<< HEAD
 
 
+=======
+    descricao = models.TextField(max_length=140, default="Descreva o produto")
+>>>>>>> 76a3e15c9ea68f2eac55805849a5128060c8d38d
     def __str__(self):
         return self.nome
 

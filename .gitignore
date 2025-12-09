@@ -1,0 +1,27 @@
+# Arquivos compilados do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Banco de dados SQLite (não versionar)
+db.sqlite3
+
+# Ambiente virtual
+venv/
+env/
+
+# Arquivos de mídia enviados pelo usuário
+media/
+
+# Arquivos de migração com cache binário
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# Arquivos de log
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
