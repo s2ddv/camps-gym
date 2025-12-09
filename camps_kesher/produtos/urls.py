@@ -9,7 +9,8 @@ from .views import (
     update_cart_item, 
     delete_cart_item,  
     clear_cart, 
-    ProdutoComVariacaoCreate
+    ProdutoComVariacaoCreate,
+    CartAPIView
 )
 
 urlpatterns = [
@@ -21,7 +22,7 @@ urlpatterns = [
     path('produto-com-variacao/', ProdutoComVariacaoCreate.as_view(), name='produto-com-variacao'),
 
     path("cart/add/", add_to_cart),
-    path("cart/", view_cart),
+    path("cart/", CartAPIView.as_view()),
     path("cart/update/", update_cart_item),
     path("cart/remove/", delete_cart_item),  
     path("cart/clear/", clear_cart),

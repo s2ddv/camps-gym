@@ -3,7 +3,9 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework import generics
-from rest_framework.views import APIView 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
 
 from .models import Categoria, Tamanho, Produto, ProdutoVariacao
 
@@ -95,6 +97,7 @@ def add_to_cart(request):
         cart.append({
             "variacao_id": variacao.id,
             "produto": variacao.produto.nome,
+            "imagem": variacao.produto.imagem.url if variacao.produto.imagem else "",
             "tamanho": variacao.tamanho.nome,
             "cor": variacao.cor,
             "preco": str(variacao.produto.preco),
@@ -167,3 +170,8 @@ def clear_cart(request):
     request.session["cart"] = []
     request.session.modified = True
     return JsonResponse({"message": "Carrinho limpo!"}, status=200)
+
+class CartAPIView(APIView):
+    permission_classes = [AllowAny]
+    def get(self, request):
+        return Response({"cart": get_cart(request)})
