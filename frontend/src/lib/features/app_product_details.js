@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = urlParams.get('id');
     if (!id) return console.error('ID não encontrado');
 
-    fetch(`http://127.0.0.1:8000/api/produtos/${id}`)
+    fetch(`http://127.0.0.1:8000/api/produtos/produtos/${id}`)
         .then(res => res.json())
         .then(produto => {
             const container = document.getElementById('produto');
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             function addToCartAPI(productId) {
-                fetch("http://127.0.0.1:8000/api/cart/add/", {
+                fetch("http://127.0.0.1:8000/api/produtos/cart/add/", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"  

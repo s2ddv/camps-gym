@@ -1,34 +1,62 @@
 from rest_framework import serializers
-from .models import Usuario, Fisico
+from django.contrib.auth.models import User
+from .models import Fisico
 
 class FisicoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fisico
-        fields = "__all__"
+        fields = ["data_de_nascimento", "telefone", "objetivo", "peso", "altura"]
 
 class UsuarioSerializer(serializers.ModelSerializer):
     fisico = FisicoSerializer(read_only=True)
 
     class Meta:
-        model = Usuario
-        fields = ["id", "username", "first_name", "last_name", "email", "data_de_nascimento", "telefone", "fisico"]
+        model = User
+        fields = ["id", "username", "first_name", "last_name", "email", "fisico"]
 
 class UsuarioCreateSerializer(serializers.ModelSerializer):
     senha = serializers.CharField(write_only=True)
+    
+    data_de_nascimento = serializers.DateField(write_only=True, required=False)
+    telefone = serializers.CharField(write_only=True, required=False)
+    objetivo = serializers.CharField(write_only=True, required=False)
+    peso = serializers.DecimalField(max_digits=6, decimal_places=2, write_only=True, required=False)
+    altura = serializers.DecimalField(max_digits=4, decimal_places=2, write_only=True, required=False)
 
     class Meta:
-        model = Usuario
-        fields = ["id", "username", "first_name", "last_name", "email", "data_de_nascimento", "telefone", "senha"]
+        model = User
+        fields = [
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "senha",
+            "data_de_nascimento",
+            "telefone",
+            "objetivo",
+            "peso",
+            "altura"
+        ]
 
     def create(self, validated_data):
-        user = Usuario(
-            username=validated_data["username"],
-            first_name=validated_data["first_name"],
-            last_name=validated_data["last_name"],
-            email=validated_data["email"],
-            data_de_nascimento=validated_data.get("data_de_nascimento"),
-            telefone=validated_data.get("telefone"),
-        )
-        user.set_password(validated_data["senha"])
+        fisico_data = {
+            "data_de_nascimento": validated_data.pop("data_de_nascimento", None),
+            "telefone": validated_data.pop("telefone", None),
+            "objetivo": validated_data.pop("objetivo", None),
+            "peso": validated_data.pop("peso", None),
+            "altura": validated_data.pop("altura", None),
+        }
+
+        senha = validated_data.pop("senha")
+
+        user = User(**validated_data)
+        user.set_password(senha)
         user.save()
+
+        Fisico.objects.create(
+            user=user,
+            **fisico_data
+        )
+
         return user
