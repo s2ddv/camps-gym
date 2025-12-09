@@ -64,6 +64,7 @@ border: none;
     .conteudo h3 {
       color: #F6AE01;
       margin-top: 5px;
+      font-size: 30px;
     }
 
     .horarios {
@@ -74,11 +75,22 @@ border: none;
       height: 200px;
     }
 
-    .horarios h4 {
+    .horarios h5 {
       color: #F6AE01;
-      margin-top: 12px;
+      font-size: 30px;
+      font-family: "Oswald", sans-serif;
     }
 
     .horarios p {
         margin-top: 15px;
     }
+
+    .text-class{
+      font-size: 20px;
+      font-family: "Oswald", sans-serif;
+    }
+  
+h5 p{
+  font-size: 25px;
+  font-family: "Oswald", sans-serif;
+}
