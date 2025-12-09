@@ -79,6 +79,12 @@ input {
     border: 1px solid #ccc;
 }
 
+select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
 a {
     font-size: 0.8rem;
     text-align: right;
