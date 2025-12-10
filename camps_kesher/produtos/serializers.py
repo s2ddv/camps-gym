@@ -48,27 +48,33 @@ class ProdutoComVariacaoSerializer(serializers.Serializer):
     tamanho = serializers.CharField()
     estoque = serializers.IntegerField()
 
+    def validate_tamanho(self, value):
+        
+        label_to_value = {label.lower(): val for val, label in Tamanho.TAMANHO}
+
+       
+        value_to_value = {val.lower(): val for val, label in Tamanho.TAMANHO}
+
+        key = value.lower()
+
+        if key in value_to_value:
+            return value_to_value[key]   
+
+        if key in label_to_value:
+            return label_to_value[key]  
+
+        raise serializers.ValidationError("Tamanho inválido.")
+
     def create(self, validated_data):
-        produto = Produto.objects.get(id=validated_data['produto_id'])
-        print("Valor recebido em tamanho:", validated_data.get('tamanho'))
-        try:
-            tamanho = Tamanho.objects.get(nome=validated_data['tamanho'])
-        except ObjectDoesNotExist:
-            raise serializers.ValidationError({"tamanho": "Tamanho não encontrado"})
-        
-        # ✅ Usar first() em vez de get() para evitar múltiplas variações
-        variacao = ProdutoVariacao.objects.filter(
+        produto = Produto.objects.get(id=validated_data["produto_id"])
+        tamanho_valor = validated_data["tamanho"] 
+        tamanho_obj = Tamanho.objects.get(nome=tamanho_valor)
+
+        variacao = ProdutoVariacao.objects.create(
             produto=produto,
-            cor=validated_data['cor'],
-            tamanho=tamanho
-        ).first()
-        
-        if not variacao:
-            variacao = ProdutoVariacao.objects.create(
-                produto=produto,
-                cor=validated_data['cor'],
-                tamanho=tamanho,
-                estoque=validated_data['estoque']
-            )
-        
+            cor=validated_data["cor"],
+            tamanho=tamanho_obj,
+            estoque=validated_data["estoque"],
+        )
+
         return variacao
