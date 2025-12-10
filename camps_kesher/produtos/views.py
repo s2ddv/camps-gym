@@ -60,7 +60,6 @@ class ProdutoVariacaoDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProdutoVariacaoSerializer
 
 class ProdutoComVariacaoCreate(generics.CreateAPIView):
-    # ✅ Cria um Produto e suas Variações associadas
     serializer_class = ProdutoComVariacaoSerializer
 
 @csrf_exempt
