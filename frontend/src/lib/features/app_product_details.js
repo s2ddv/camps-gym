@@ -14,26 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
                             <img src="${produto.imagem}" alt="${produto.nome}">
                         </div>
                         <div class="details-grid">
-                            <p>${produto.categoria.nome}</p>
+                            <p class="categoria">${produto.categoria.nome}</p>
                             <h3>${produto.nome}</h3>
-                            <p>R$ ${produto.preco}</p>
+                            <p class="preco-produtos">R$ ${produto.preco}</p>
 
-                            <p>Color:</p>
+                            <p class="color-change">Color:</p>
                             <div class="change-color">
                                 <button class="change-color1" data-color="Preta">Preta</button>
                                 <button class="change-color2" data-color="Branca">Branca</button>
                                 <button class="change-color3" data-color="Azul">Azul</button>
                             </div>
 
-                            <p>Size:</p>
+                            <p class="color-change">Size:</p>
                             <div class="change-size">
                                 <button class="change-size1" data-size="P">P</button>
                                 <button class="change-size2" data-size="M">M</button>
                                 <button class="change-size3" data-size="G">G</button>
                             </div>
 
-                            <button id="cartBtn" data-product-id="${produto.id}" class="cart-btn">ADD TO CART</button>
-                            <button id="buyBtn" data-product-id="${produto.id}" class="buy-now-btn">BUY NOW</button>
+                            <button id="cartBtn" data-product-id="${produto.id}" class="cart-btn">ADICIONAR AO CARRINHO</button>
+                            <button id="buyBtn" data-product-id="${produto.id}" class="buy-now-btn">COMPRAR AGORA</button>
                         </div>
                     </div>
                 </section>
