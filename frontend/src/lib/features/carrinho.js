@@ -1,20 +1,9 @@
-/*
- * METODOLOGIA SENAI: Este script demonstra a "Mediação da Aprendizagem".
- * O código, com seus comentários, age como um mediador, explicando
- * como o Frontend (a vitrine) "conversa" com o Backend (o almoxarifado)
- * para buscar e exibir os produtos do carrinho, tornando um conceito complexo (API REST)
- * mais acessível.
- */
-
-// Espera o documento HTML ser completamente carregado antes de executar o script
 window.onload = function() {
     exibirItensCarrinho();
 };
 
-// URL da API do carrinho
 const API_CART_URL = "http://127.0.0.1:8000/api/produtos/cart/";
 
-// Função para buscar os itens do carrinho do backend
 async function pegarProdutosCarrinhoDaAPI() {
     try {
         const res = await fetch(API_CART_URL, {
@@ -33,7 +22,6 @@ async function pegarProdutosCarrinhoDaAPI() {
     }
 }
 
-// Função para exibir mensagem de erro na tela do carrinho
 function mostrarErroCarrinho(msg) {
     const container = document.getElementById('cart-container');
     if (container) {
@@ -41,7 +29,6 @@ function mostrarErroCarrinho(msg) {
     }
 }
 
-// Função principal para exibir os itens do carrinho na página
 async function exibirItensCarrinho() {
     const container = document.getElementById('cart-container');
     if (!container) return;
@@ -51,15 +38,15 @@ async function exibirItensCarrinho() {
     let carrinho = [];
     if (itensApi.length > 0) {
         carrinho = itensApi.map(item => {
-            // Corrige imagem para URL absoluta se necessário
             let imagemUrl = item.imagem || '';
             if (imagemUrl && imagemUrl.startsWith('/')) {
                 imagemUrl = 'http://127.0.0.1:8000' + imagemUrl;
             }
-            // Preço pode vir como string
+
             let precoNum = typeof item.preco === 'number' ? item.preco : parseFloat(item.preco) || 0;
+
             return {
-                id: item.variacao_id ?? null,
+                id: item.variacao_id ?? item.id ?? null,
                 nome: item.produto ?? item.nome ?? item.title ?? 'Produto',
                 imagem: imagemUrl,
                 cor: item.cor ?? item.color ?? '',
@@ -71,7 +58,7 @@ async function exibirItensCarrinho() {
         });
     }
 
-    console.log('Carrinho carregado:', carrinho); // Para depuração
+    console.log('Carrinho carregado:', carrinho);
     container.innerHTML = '';
 
     if (carrinho.length === 0) {
@@ -83,13 +70,11 @@ async function exibirItensCarrinho() {
     let subtotal = 0;
 
     carrinho.forEach((item, index) => {
-        // Verifica se o item e o preço são válidos antes de usar
         const precoValido = (item && typeof item.preco === 'number') ? item.preco : 0;
         const quantidadeValida = (item && typeof item.quantidade === 'number') ? item.quantidade : 1;
         const itemTotal = precoValido * quantidadeValida;
         subtotal += itemTotal;
 
-        // Estrutura do cartão do item do carrinho
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item-card';
         cartItem.innerHTML = `
@@ -101,56 +86,81 @@ async function exibirItensCarrinho() {
                 <div class="cor">Cor: ${item.cor}</div>
                 <div class="tamanho">Tamanho: ${item.tamanho}</div>
             </div>
+
             <div class="item-quantity">
-                <label for="qtd-${index}">Qtd:</label>
-                <input type="number" id="qtd-${index}" value="${quantidadeValida}" min="1" data-index="${index}" onchange="atualizarQuantidade(this)">
+                <button class="quantity-btn" onclick="diminuirQuantidade(${index})">-</button>
+                <span class="quantidade-text" id="qtd-${index}">${quantidadeValida}</span>
+                <button class="quantity-btn" onclick="aumentarQuantidade(${index})">+</button>
             </div>
+
             <div class="item-total">
                 <span>Total: R$ ${itemTotal.toFixed(2).replace('.', ',')}</span>
             </div>
+
             <button class="remove-item-btn" onclick="removerItem(${index})">Remover</button>
         `;
+
         container.appendChild(cartItem);
     });
 
     atualizarResumo(subtotal);
 }
 
-// Função para remover um item do carrinho (agora sincroniza com o backend)
 async function removerItem(index) {
     const carrinho = await pegarProdutosCarrinhoDaAPI();
     const item = carrinho[index];
     if (!item) return;
+
+    const variacaoId = item.variacao_id ?? item.id;
+
     await fetch('http://127.0.0.1:8000/api/produtos/cart/remove/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ variacao_id: item.id })
+        body: JSON.stringify({ variacao_id: variacaoId })
     });
+
     exibirItensCarrinho();
 }
 
-// Função para atualizar a quantidade de um item do carrinho (agora sincroniza com o backend)
-async function atualizarQuantidade(input) {
-    const index = input.getAttribute('data-index');
-    const novaQuantidade = parseInt(input.value);
+async function aumentarQuantidade(index) {
     const carrinho = await pegarProdutosCarrinhoDaAPI();
     const item = carrinho[index];
     if (!item) return;
-    if (novaQuantidade > 0) {
-        await fetch('http://127.0.0.1:8000/api/produtos/cart/update/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            body: JSON.stringify({ variacao_id: item.id, quantidade: novaQuantidade })
-        });
-        exibirItensCarrinho();
-    } else {
-        removerItem(index);
-    }
+
+    const novaQuantidade = item.quantidade + 1;
+
+    await fetch('http://127.0.0.1:8000/api/produtos/cart/update/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ variacao_id: item.id, quantidade: novaQuantidade })
+    });
+
+    exibirItensCarrinho();
 }
 
-// Função para atualizar o resumo do carrinho (subtotal e total)
+async function diminuirQuantidade(index) {
+    const carrinho = await pegarProdutosCarrinhoDaAPI();
+    const item = carrinho[index];
+    if (!item) return;
+
+    const novaQuantidade = item.quantidade - 1;
+
+    if (novaQuantidade <= 0) {
+        return removerItem(index);
+    }
+
+    await fetch('http://127.0.0.1:8000/api/produtos/cart/update/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ variacao_id: item.id, quantidade: novaQuantidade })
+    });
+
+    exibirItensCarrinho();
+}
+
 function atualizarResumo(subtotal) {
     const subtotalEl = document.getElementById('subtotal');
     const totalEl = document.getElementById('total');
