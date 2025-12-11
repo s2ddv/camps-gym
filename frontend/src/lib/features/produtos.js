@@ -27,7 +27,7 @@ function buscarProdutos() {
         })
         .catch(error => {
             console.error('Erro ao buscar produtos:', error);
-            document.getElementById('product-container').innerHTML = '<p>Não foi possível carregar os produtos. Tente novamente mais tarde.</p>';
+            document.getElementById('product-container').innerHTML = '<p class="carregamento">Não foi possível carregar os produtos. Tente novamente mais tarde.</p>';
         });
 }
 
@@ -51,7 +51,7 @@ function exibirProdutos(produtos) {
     container.innerHTML = '';
 
     if (produtos.length === 0) {
-        container.innerHTML = '<p>Nenhum produto encontrado.</p>';
+        container.innerHTML = '<p class="produto-encontrado">Nenhum produto encontrado.</p>';
         return;
     }
 

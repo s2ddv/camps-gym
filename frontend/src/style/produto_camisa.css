@@ -6,12 +6,19 @@
     list-style: none;
 }
 
+body{
+    background-color: #121212;
+}
+
 a { 
     color: black;
 }
 
 .back-home { 
-    font-size: 16px;
+    font-size: 30px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-left: -30px;
 }
 
 .back-arrow img { 
@@ -37,19 +44,24 @@ a {
     display: flex;
     flex-direction: column;
     border-radius: 16px;
-    box-shadow: 0 2px 5px gainsboro;
     padding-right: 10px;
     margin: 10px 50px 20px 50px;
 }
 
 .img-grid { 
     display: flex;
-    box-shadow: 0 2px 5px gainsboro;
+
     margin: 10px 50px 100px 50px;
     border-radius: 16px;
     align-items: center;
     justify-content: center;
     height: 95.5%;
+    background-color: #121212;
+}
+
+.img-grid img{
+    background-color: #616161;
+    border-radius: 20px;
 }
 
 .main-img { 
@@ -109,12 +121,17 @@ h3, p {
     padding: 8px 20px;
 }
 
-p { 
-    font-size: 0.9rem;
+.categoria{
+    font-size: 40px;
+    font-weight: bold;
+    color: #F6AE01;
+    font-family: "Oswald", sans-serif;
 }
 
 h3 { 
-    font-size: 2rem;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFFFFF;
 }
 
 .buy-now { 
@@ -129,31 +146,34 @@ h3 {
     color: #fff;
     border: none;
     outline: none;
-    width: 50rem;
+    width: 47rem;
     height: 3rem;
     align-self: center;
     cursor: pointer;
+    color: #FFFFFF;
+    margin-top: 10px;
 }
 
 .cart-btn { 
     border-radius: 10px;
-    transition: background-color 0.4s ease-in-out;
-    background-color: #fff;
+    transition: background-color 0.3s ease-in-out;
+    background-color: #FFFFFF;
     color: #252525;
     outline: none;
-    width: 50rem;
+    width: 47rem;
     align-self: center;
     height: 3rem;
     cursor: pointer;
+    color: #000000;
 }
 
 .cart-btn:hover { 
-    background-color: goldenrod;
+    background-color: #F6AE01;
     border: none;
 }
 
 .buy-now-btn:hover { 
-    background-color: goldenrod;
+    background-color: #F6AE01;
 }
 
 .product-details { 
@@ -177,41 +197,50 @@ h3 {
 .change-color1,
 .change-color2,
 .change-color3 { 
-    background-color: #fff;
+    background-color: #252525;
     border-radius: 8px;
+    font-size: 25px;
+    color: #FFFFFF;
 }
 
 .change-size1,
 .change-size2,
 .change-size3 { 
-    background-color: #fff;
+    background-color: #252525;
     border-radius: 8px;
+    font-size: 25px;
+    color: #FFFFFF;
 }
 
 .change-color1:hover,
 .change-color2:hover,
 .change-color3:hover { 
     cursor: pointer;
+    background-color: #F6AE01;
+    transition: background-color 0.3s ease-in-out;
+    color: #000000;
 }
 
 .change-size1:hover,
 .change-size2:hover,
 .change-size3:hover { 
     cursor: pointer;
+    background-color: #F6AE01;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .change-color1.selected,
 .change-color2.selected,
 .change-color3.selected { 
-    background-color: #252525;
-    color: #fff;
+    background-color: #616161;
+    color: #000000;
 }
 
 .change-size1.selected,
 .change-size2.selected,
 .change-size3.selected { 
-    background-color: #252525;
-    color: #fff;
+    background-color: #616161;
+    color: #000000;
 }
 
 .change-size { 
@@ -222,5 +251,16 @@ h3 {
     height: 60px;
     border-radius: 8px;
     transition: all 0.4s;
-    background-color: #fff;
+}
+
+.preco-produtos{
+    font-size: 40px;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+.color-change{
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFFFFF;
 }
